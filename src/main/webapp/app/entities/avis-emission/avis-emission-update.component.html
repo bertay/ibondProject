@@ -1,0 +1,109 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-avis-emission-heading" jhiTranslate="ibondgeneApp.avisEmission.home.createOrEditLabel">Create or edit a Avis Emission</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.avisEmission.nature" for="field_nature">Nature</label>
+                    <select class="form-control" name="nature" formControlName="nature" id="field_nature">
+                        <option value="Avis">{{ 'ibondgeneApp.NatureActe.Avis' | translate }}</option>
+                        <option value="Calendrier">{{ 'ibondgeneApp.NatureActe.Calendrier' | translate }}</option>
+                        <option value="Communique">{{ 'ibondgeneApp.NatureActe.Communique' | translate }}</option>
+                        <option value="Resultat">{{ 'ibondgeneApp.NatureActe.Resultat' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.avisEmission.numero" for="field_numero">Numero</label>
+                    <input type="text" class="form-control" name="numero" id="field_numero"
+                           formControlName="numero"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.avisEmission.reference" for="field_reference">Reference</label>
+                    <input type="text" class="form-control" name="reference" id="field_reference"
+                           formControlName="reference"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.avisEmission.signataire" for="field_signataire">Signataire</label>
+                    <input type="text" class="form-control" name="signataire" id="field_signataire"
+                           formControlName="signataire"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.avisEmission.objetAvisFr" for="field_objetAvisFr">Objet Avis Fr</label>
+                    <input type="text" class="form-control" name="objetAvisFr" id="field_objetAvisFr"
+                           formControlName="objetAvisFr"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.avisEmission.objetAvisEn" for="field_objetAvisEn">Objet Avis En</label>
+                    <input type="text" class="form-control" name="objetAvisEn" id="field_objetAvisEn"
+                           formControlName="objetAvisEn"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.avisEmission.objetAvisPt" for="field_objetAvisPt">Objet Avis Pt</label>
+                    <input type="text" class="form-control" name="objetAvisPt" id="field_objetAvisPt"
+                           formControlName="objetAvisPt"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.avisEmission.etatAvis" for="field_etatAvis">Etat Avis</label>
+                    <select class="form-control" name="etatAvis" formControlName="etatAvis" id="field_etatAvis">
+                        <option value="Projet">{{ 'ibondgeneApp.EtatActe.Projet' | translate }}</option>
+                        <option value="Signe">{{ 'ibondgeneApp.EtatActe.Signe' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.avisEmission.operateur" for="field_operateur">Operateur</label>
+                    <input type="text" class="form-control" name="operateur" id="field_operateur"
+                           formControlName="operateur"/>
+                    <div *ngIf="editForm.get('operateur')!.invalid && (editForm.get('operateur')!.dirty || editForm.get('operateur')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('operateur')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.avisEmission.dateOperation" for="field_dateOperation">Date Operation</label>
+                    <div class="d-flex">
+                        <input id="field_dateOperation" type="datetime-local" class="form-control" name="dateOperation" formControlName="dateOperation" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dateOperation')!.invalid && (editForm.get('dateOperation')!.dirty || editForm.get('dateOperation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateOperation')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dateOperation')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

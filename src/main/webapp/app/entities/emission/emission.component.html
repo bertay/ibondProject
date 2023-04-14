@@ -1,0 +1,117 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ibondgeneApp.emission.home.title">Emissions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-emission" [routerLink]="['/emission/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ibondgeneApp.emission.home.createLabel">
+            Create a new Emission
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="emissions?.length === 0">
+        <span jhiTranslate="ibondgeneApp.emission.home.notFound">No emissions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="emissions && emissions.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.codeEmission">Code Emission</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.designationFr">Designation Fr</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.designationEn">Designation En</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.designationPt">Designation Pt</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.dateEmission">Date Emission</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.echeance">Echeance</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.duree">Duree</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.remboursement">Remboursement</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.formeTitre">Forme Titre</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.tauxInteret">Taux Interet</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.volumeEmission">Volume Emission</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.uniteVolume">Unite Volume</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.valeurNominale">Valeur Nominale</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.devise">Devise</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.quantiteTitre">Quantite Titre</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.rendement">Rendement</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.dateLimite">Date Limite</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.lieuSouscription">Lieu Souscription</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.dateResultat">Date Resultat</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.dateReglement">Date Reglement</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.dateValeur">Date Valeur</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.operateur">Operateur</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.dateOperation">Date Operation</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.avisEmission">Avis Emission</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.emission.natureTitre">Nature Titre</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emission of emissions ;trackBy: trackId">
+                    <td><a [routerLink]="['/emission', emission.id, 'view']">{{ emission.id }}</a></td>
+                    <td>{{ emission.codeEmission }}</td>
+                    <td>{{ emission.designationFr }}</td>
+                    <td>{{ emission.designationEn }}</td>
+                    <td>{{ emission.designationPt }}</td>
+                    <td>{{ emission.dateEmission | date:'mediumDate' }}</td>
+                    <td>{{ emission.echeance | date:'mediumDate' }}</td>
+                    <td>{{ emission.duree }}</td>
+                    <td>{{ emission.remboursement }}</td>
+                    <td>{{ emission.formeTitre }}</td>
+                    <td>{{ emission.tauxInteret }}</td>
+                    <td>{{ emission.volumeEmission }}</td>
+                    <td jhiTranslate="{{ 'ibondgeneApp.UniteNombre.' + emission.uniteVolume }}">{{ emission.uniteVolume }}</td>
+                    <td>{{ emission.valeurNominale }}</td>
+                    <td jhiTranslate="{{ 'ibondgeneApp.TypeValeur.' + emission.devise }}">{{ emission.devise }}</td>
+                    <td>{{ emission.quantiteTitre }}</td>
+                    <td>{{ emission.rendement }}</td>
+                    <td>{{ emission.dateLimite | date:'medium' }}</td>
+                    <td>{{ emission.lieuSouscription }}</td>
+                    <td>{{ emission.dateResultat | date:'medium' }}</td>
+                    <td>{{ emission.dateReglement | date:'medium' }}</td>
+                    <td>{{ emission.dateValeur | date:'mediumDate' }}</td>
+                    <td>{{ emission.operateur }}</td>
+                    <td>{{ emission.dateOperation | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="emission.avisEmissionId">
+                            <a [routerLink]="['/avis-emission', emission.avisEmissionId , 'view']" >{{ emission.avisEmissionId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="emission.natureTitreId">
+                            <a [routerLink]="['/nature-titre', emission.natureTitreId , 'view']" >{{ emission.natureTitreId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/emission', emission.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/emission', emission.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(emission)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

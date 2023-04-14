@@ -1,0 +1,62 @@
+{
+  "name": "Svt",
+  "fields": [
+    {
+      "fieldName": "abreviationFr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "abreviationEn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "abreviationPt",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "designationFr",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "designationEn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "etat",
+      "fieldType": "EtatSvt",
+      "fieldValues": "Agree,Suspendu"
+    },
+    {
+      "fieldName": "operateur",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateOperation",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pays",
+      "otherEntityRelationshipName": "svt",
+      "relationshipName": "pays",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210821161051",
+  "javadoc": "Entite Svt",
+  "entityTableName": "svt",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

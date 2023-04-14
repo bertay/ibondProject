@@ -1,0 +1,93 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ibondgeneApp.soumission.home.title">Soumissions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-soumission" [routerLink]="['/soumission/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ibondgeneApp.soumission.home.createLabel">
+            Create a new Soumission
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="soumissions?.length === 0">
+        <span jhiTranslate="ibondgeneApp.soumission.home.notFound">No soumissions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="soumissions && soumissions.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.soumission.numAnonymat">Num Anonymat</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.soumission.dateSoumission">Date Soumission</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.soumission.nbreSoumission">Nbre Soumission</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.soumission.operateur">Operateur</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.soumission.dateOperation">Date Operation</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.soumission.emission">Emission</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.soumission.reouverture">Reouverture</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.soumission.rachat">Rachat</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.soumission.onc">Onc</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let soumission of soumissions ;trackBy: trackId">
+                    <td><a [routerLink]="['/soumission', soumission.id, 'view']">{{ soumission.id }}</a></td>
+                    <td>{{ soumission.numAnonymat }}</td>
+                    <td>{{ soumission.dateSoumission | date:'medium' }}</td>
+                    <td>{{ soumission.nbreSoumission }}</td>
+                    <td>{{ soumission.operateur }}</td>
+                    <td>{{ soumission.dateOperation | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="soumission.emissionId">
+                            <a [routerLink]="['/emission', soumission.emissionId , 'view']" >{{ soumission.emissionId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="soumission.reouvertureId">
+                            <a [routerLink]="['/reouverture', soumission.reouvertureId , 'view']" >{{ soumission.reouvertureId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="soumission.rachatId">
+                            <a [routerLink]="['/rachat', soumission.rachatId , 'view']" >{{ soumission.rachatId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="soumission.oncId">
+                            <a [routerLink]="['/onc', soumission.oncId , 'view']" >{{ soumission.oncId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/soumission', soumission.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/soumission', soumission.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(soumission)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

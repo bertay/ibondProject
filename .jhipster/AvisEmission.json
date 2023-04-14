@@ -1,0 +1,69 @@
+{
+  "name": "AvisEmission",
+  "fields": [
+    {
+      "fieldName": "nature",
+      "fieldType": "NatureActe",
+      "fieldValues": "Avis,Calendrier,Communique,Resultat"
+    },
+    {
+      "fieldName": "numero",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "reference",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "signataire",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "objetAvisFr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "objetAvisEn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "objetAvisPt",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "etatAvis",
+      "fieldType": "EtatActe",
+      "fieldValues": "Projet,Signe"
+    },
+    {
+      "fieldName": "operateur",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateOperation",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "emission",
+      "otherEntityRelationshipName": "avisEmission",
+      "relationshipName": "emission"
+    }
+  ],
+  "changelogDate": "20210821160751",
+  "javadoc": "Entite AvisEmission",
+  "entityTableName": "avis_emission",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

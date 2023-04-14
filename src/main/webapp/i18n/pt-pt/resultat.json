@@ -1,0 +1,40 @@
+{
+  "ibondgeneApp": {
+    "resultat": {
+      "home": {
+        "title": "Resultats",
+        "createLabel": "Criar novo(a) Resultat",
+        "createOrEditLabel": "Criar ou editar Resultat",
+        "notFound": "Nenhum Resultats encontrado"
+      },
+      "created": "Um novo Resultat foi criado com o identificador {{ param }}",
+      "updated": "Resultat com identificador {{ param }} foi actualizado",
+      "deleted": "Resultat com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Resultat {{ id }}?"
+      },
+      "detail": {
+        "title": "Resultat"
+      },
+      "nbreSvtTotal": "Nbre Svt Total",
+      "nbreSvtSoumis": "Nbre Svt Soumis",
+      "montantTresor": "Montant Tresor",
+      "uniteTresor": "Unite Tresor",
+      "montantSoumis": "Montant Soumis",
+      "uniteSoumis": "Unite Soumis",
+      "montantServi": "Montant Servi",
+      "nbreTitreTotal": "Nbre Titre Total",
+      "nbreTitreSoumis": "Nbre Titre Soumis",
+      "tauxMinPropose": "Taux Min Propose",
+      "tauxMaxPropose": "Taux Max Propose",
+      "tauxLimite": "Taux Limite",
+      "tauxInteretMoyen": "Taux Interet Moyen",
+      "tauxRendementMoyen": "Taux Rendement Moyen",
+      "tauxCouverture": "Taux Couverture",
+      "emission": "Emission",
+      "resultat": "Resultat",
+      "rachat": "Rachat",
+      "onc": "Onc"
+    }
+  }
+}

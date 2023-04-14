@@ -1,0 +1,53 @@
+{
+  "ibondgeneApp": {
+    "emission": {
+      "home": {
+        "title": "Emissions",
+        "createLabel": "Crear nuevo Emission",
+        "createOrEditLabel": "Crear o editar Emission",
+        "notFound": "Ningún Emissions encontrado"
+      },
+      "created": "Un nuevo Emission ha sido creado con el identificador {{ param }}",
+      "updated": "Un Emission ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Emission ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Emission {{ id }}?"
+      },
+      "detail": {
+        "title": "Emission"
+      },
+      "codeEmission": "Code Emission",
+      "designationFr": "Designation Fr",
+      "designationEn": "Designation En",
+      "designationPt": "Designation Pt",
+      "dateEmission": "Date Emission",
+      "echeance": "Echeance",
+      "duree": "Duree",
+      "remboursement": "Remboursement",
+      "formeTitre": "Forme Titre",
+      "tauxInteret": "Taux Interet",
+      "volumeEmission": "Volume Emission",
+      "uniteVolume": "Unite Volume",
+      "valeurNominale": "Valeur Nominale",
+      "devise": "Devise",
+      "quantiteTitre": "Quantite Titre",
+      "rendement": "Rendement",
+      "dateLimite": "Date Limite",
+      "lieuSouscription": "Lieu Souscription",
+      "dateResultat": "Date Resultat",
+      "dateReglement": "Date Reglement",
+      "dateValeur": "Date Valeur",
+      "operateur": "Operateur",
+      "dateOperation": "Date Operation",
+      "soumission": "Soumission",
+      "reouverture": "Reouverture",
+      "rachat": "Rachat",
+      "onc": "Onc",
+      "classement": "Classement",
+      "resultat": "Resultat",
+      "membreSyndicat": "Membre Syndicat",
+      "avisEmission": "Avis Emission",
+      "natureTitre": "Nature Titre"
+    }
+  }
+}

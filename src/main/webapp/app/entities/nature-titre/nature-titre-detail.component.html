@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="natureTitre">
+            <h2><span jhiTranslate="ibondgeneApp.natureTitre.detail.title">Nature Titre</span> {{ natureTitre.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ibondgeneApp.natureTitre.codeNature">Code Nature</span></dt>
+                <dd>
+                    <span>{{ natureTitre.codeNature }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.natureTitre.designationFr">Designation Fr</span></dt>
+                <dd>
+                    <span>{{ natureTitre.designationFr }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.natureTitre.designationEn">Designation En</span></dt>
+                <dd>
+                    <span>{{ natureTitre.designationEn }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.natureTitre.designationPt">Designation Pt</span></dt>
+                <dd>
+                    <span>{{ natureTitre.designationPt }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.natureTitre.nominalUnitaire">Nominal Unitaire</span></dt>
+                <dd>
+                    <span>{{ natureTitre.nominalUnitaire }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.natureTitre.uniteValeur">Unite Valeur</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.TypeValeur.' + natureTitre.uniteValeur }}">{{ natureTitre.uniteValeur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.natureTitre.natureEcheance">Nature Echeance</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.UniteDuree.' + natureTitre.natureEcheance }}">{{ natureTitre.natureEcheance }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.natureTitre.operateur">Operateur</span></dt>
+                <dd>
+                    <span>{{ natureTitre.operateur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.natureTitre.dateOperation">Date Operation</span></dt>
+                <dd>
+                    <span>{{ natureTitre.dateOperation }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/nature-titre', natureTitre.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

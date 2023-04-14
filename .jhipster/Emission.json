@@ -1,0 +1,187 @@
+{
+  "name": "Emission",
+  "fields": [
+    {
+      "fieldName": "codeEmission",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "designationFr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "designationEn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "designationPt",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateEmission",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "echeance",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "duree",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "remboursement",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "formeTitre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tauxInteret",
+      "fieldType": "Float",
+      "fieldValidateRules": ["min", "max", "required"],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "100"
+    },
+    {
+      "fieldName": "volumeEmission",
+      "fieldType": "Double",
+      "fieldValidateRules": ["min", "required"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "uniteVolume",
+      "fieldType": "UniteNombre",
+      "fieldValues": "Milles,Millions,Milliards",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "valeurNominale",
+      "fieldType": "Double",
+      "fieldValidateRules": ["min", "required"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "devise",
+      "fieldType": "TypeValeur",
+      "fieldValues": "FCFA,Euro,USD",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "quantiteTitre",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "rendement",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateLimite",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lieuSouscription",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateResultat",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dateReglement",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "dateValeur",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "operateur",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateOperation",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "soumission",
+      "otherEntityRelationshipName": "emission",
+      "relationshipName": "soumission"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "reouverture",
+      "otherEntityRelationshipName": "emission",
+      "relationshipName": "reouverture"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "rachat",
+      "otherEntityRelationshipName": "emission",
+      "relationshipName": "rachat"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "onc",
+      "otherEntityRelationshipName": "emission",
+      "relationshipName": "onc"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "classement",
+      "otherEntityRelationshipName": "emission",
+      "relationshipName": "classement"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "resultat",
+      "otherEntityRelationshipName": "emission",
+      "relationshipName": "resultat"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "membreSyndicat",
+      "otherEntityRelationshipName": "emission",
+      "relationshipName": "membreSyndicat"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "avisEmission",
+      "otherEntityRelationshipName": "emission",
+      "relationshipName": "avisEmission",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "natureTitre",
+      "otherEntityRelationshipName": "emission",
+      "relationshipName": "natureTitre",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210821160851",
+  "javadoc": "Entite Emission",
+  "entityTableName": "emission",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

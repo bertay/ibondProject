@@ -1,0 +1,69 @@
+{
+  "name": "Calendrier",
+  "fields": [
+    {
+      "fieldName": "nature",
+      "fieldType": "NatureActe",
+      "fieldValues": "Avis,Calendrier,Communique,Resultat"
+    },
+    {
+      "fieldName": "numero",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "reference",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "signataire",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "titreCalendrierFr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "titreCalendrierEn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "titreCalendrierPt",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "etatCalendrier",
+      "fieldType": "EtatActe",
+      "fieldValues": "Projet,Signe"
+    },
+    {
+      "fieldName": "operateur",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateOperation",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "detailCalendrier",
+      "otherEntityRelationshipName": "calendrier",
+      "relationshipName": "detailCalendrier"
+    }
+  ],
+  "changelogDate": "20210821161751",
+  "javadoc": "Entite Calendrier",
+  "entityTableName": "calendrier",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

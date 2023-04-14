@@ -1,0 +1,28 @@
+{
+  "ibondgeneApp": {
+    "pays": {
+      "home": {
+        "title": "Pays",
+        "createLabel": "Criar novo(a) Pays",
+        "createOrEditLabel": "Criar ou editar Pays",
+        "notFound": "Nenhum Pays encontrado"
+      },
+      "created": "Um novo Pays foi criado com o identificador {{ param }}",
+      "updated": "Pays com identificador {{ param }} foi actualizado",
+      "deleted": "Pays com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Pays {{ id }}?"
+      },
+      "detail": {
+        "title": "Pays"
+      },
+      "codePays": "Code Pays",
+      "designationFr": "Designation Fr",
+      "designationEn": "Designation En",
+      "designationPt": "Designation Pt",
+      "operateur": "Operateur",
+      "dateOperation": "Date Operation",
+      "svt": "Svt"
+    }
+  }
+}

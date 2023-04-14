@@ -1,0 +1,30 @@
+{
+  "ibondgeneApp": {
+    "svt": {
+      "home": {
+        "title": "Svts",
+        "createLabel": "Crear nuevo Svt",
+        "createOrEditLabel": "Crear o editar Svt",
+        "notFound": "Ningún Svts encontrado"
+      },
+      "created": "Un nuevo Svt ha sido creado con el identificador {{ param }}",
+      "updated": "Un Svt ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Svt ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Svt {{ id }}?"
+      },
+      "detail": {
+        "title": "Svt"
+      },
+      "abreviationFr": "Abreviation Fr",
+      "abreviationEn": "Abreviation En",
+      "abreviationPt": "Abreviation Pt",
+      "designationFr": "Designation Fr",
+      "designationEn": "Designation En",
+      "etat": "Etat",
+      "operateur": "Operateur",
+      "dateOperation": "Date Operation",
+      "pays": "Pays"
+    }
+  }
+}

@@ -1,0 +1,320 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-emission-heading" jhiTranslate="ibondgeneApp.emission.home.createOrEditLabel">Create or edit a Emission</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.codeEmission" for="field_codeEmission">Code Emission</label>
+                    <input type="text" class="form-control" name="codeEmission" id="field_codeEmission"
+                           formControlName="codeEmission"/>
+                    <div *ngIf="editForm.get('codeEmission')!.invalid && (editForm.get('codeEmission')!.dirty || editForm.get('codeEmission')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeEmission')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.designationFr" for="field_designationFr">Designation Fr</label>
+                    <input type="text" class="form-control" name="designationFr" id="field_designationFr"
+                           formControlName="designationFr"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.designationEn" for="field_designationEn">Designation En</label>
+                    <input type="text" class="form-control" name="designationEn" id="field_designationEn"
+                           formControlName="designationEn"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.designationPt" for="field_designationPt">Designation Pt</label>
+                    <input type="text" class="form-control" name="designationPt" id="field_designationPt"
+                           formControlName="designationPt"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.dateEmission" for="field_dateEmission">Date Emission</label>
+                    <div class="input-group">
+                        <input id="field_dateEmission" type="text" class="form-control" name="dateEmission" ngbDatepicker #dateEmissionDp="ngbDatepicker" formControlName="dateEmission"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateEmissionDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateEmission')!.invalid && (editForm.get('dateEmission')!.dirty || editForm.get('dateEmission')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateEmission')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.echeance" for="field_echeance">Echeance</label>
+                    <div class="input-group">
+                        <input id="field_echeance" type="text" class="form-control" name="echeance" ngbDatepicker #echeanceDp="ngbDatepicker" formControlName="echeance"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="echeanceDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('echeance')!.invalid && (editForm.get('echeance')!.dirty || editForm.get('echeance')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('echeance')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.duree" for="field_duree">Duree</label>
+                    <input type="text" class="form-control" name="duree" id="field_duree"
+                           formControlName="duree"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.remboursement" for="field_remboursement">Remboursement</label>
+                    <input type="text" class="form-control" name="remboursement" id="field_remboursement"
+                           formControlName="remboursement"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.formeTitre" for="field_formeTitre">Forme Titre</label>
+                    <input type="text" class="form-control" name="formeTitre" id="field_formeTitre"
+                           formControlName="formeTitre"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.tauxInteret" for="field_tauxInteret">Taux Interet</label>
+                    <input type="number" class="form-control" name="tauxInteret" id="field_tauxInteret"
+                           formControlName="tauxInteret"/>
+                    <div *ngIf="editForm.get('tauxInteret')!.invalid && (editForm.get('tauxInteret')!.dirty || editForm.get('tauxInteret')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxInteret')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxInteret')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxInteret')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 100 }">
+                            This field cannot be more than 100.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('tauxInteret')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.volumeEmission" for="field_volumeEmission">Volume Emission</label>
+                    <input type="number" class="form-control" name="volumeEmission" id="field_volumeEmission"
+                           formControlName="volumeEmission"/>
+                    <div *ngIf="editForm.get('volumeEmission')!.invalid && (editForm.get('volumeEmission')!.dirty || editForm.get('volumeEmission')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('volumeEmission')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('volumeEmission')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('volumeEmission')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.uniteVolume" for="field_uniteVolume">Unite Volume</label>
+                    <select class="form-control" name="uniteVolume" formControlName="uniteVolume" id="field_uniteVolume">
+                        <option value="Milles">{{ 'ibondgeneApp.UniteNombre.Milles' | translate }}</option>
+                        <option value="Millions">{{ 'ibondgeneApp.UniteNombre.Millions' | translate }}</option>
+                        <option value="Milliards">{{ 'ibondgeneApp.UniteNombre.Milliards' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('uniteVolume')!.invalid && (editForm.get('uniteVolume')!.dirty || editForm.get('uniteVolume')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('uniteVolume')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.valeurNominale" for="field_valeurNominale">Valeur Nominale</label>
+                    <input type="number" class="form-control" name="valeurNominale" id="field_valeurNominale"
+                           formControlName="valeurNominale"/>
+                    <div *ngIf="editForm.get('valeurNominale')!.invalid && (editForm.get('valeurNominale')!.dirty || editForm.get('valeurNominale')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('valeurNominale')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('valeurNominale')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('valeurNominale')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.devise" for="field_devise">Devise</label>
+                    <select class="form-control" name="devise" formControlName="devise" id="field_devise">
+                        <option value="FCFA">{{ 'ibondgeneApp.TypeValeur.FCFA' | translate }}</option>
+                        <option value="Euro">{{ 'ibondgeneApp.TypeValeur.Euro' | translate }}</option>
+                        <option value="USD">{{ 'ibondgeneApp.TypeValeur.USD' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('devise')!.invalid && (editForm.get('devise')!.dirty || editForm.get('devise')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('devise')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.quantiteTitre" for="field_quantiteTitre">Quantite Titre</label>
+                    <input type="number" class="form-control" name="quantiteTitre" id="field_quantiteTitre"
+                           formControlName="quantiteTitre"/>
+                    <div *ngIf="editForm.get('quantiteTitre')!.invalid && (editForm.get('quantiteTitre')!.dirty || editForm.get('quantiteTitre')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('quantiteTitre')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('quantiteTitre')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.rendement" for="field_rendement">Rendement</label>
+                    <input type="text" class="form-control" name="rendement" id="field_rendement"
+                           formControlName="rendement"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.dateLimite" for="field_dateLimite">Date Limite</label>
+                    <div class="d-flex">
+                        <input id="field_dateLimite" type="datetime-local" class="form-control" name="dateLimite" formControlName="dateLimite" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dateLimite')!.invalid && (editForm.get('dateLimite')!.dirty || editForm.get('dateLimite')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateLimite')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dateLimite')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.lieuSouscription" for="field_lieuSouscription">Lieu Souscription</label>
+                    <input type="text" class="form-control" name="lieuSouscription" id="field_lieuSouscription"
+                           formControlName="lieuSouscription"/>
+                    <div *ngIf="editForm.get('lieuSouscription')!.invalid && (editForm.get('lieuSouscription')!.dirty || editForm.get('lieuSouscription')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lieuSouscription')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.dateResultat" for="field_dateResultat">Date Resultat</label>
+                    <div class="d-flex">
+                        <input id="field_dateResultat" type="datetime-local" class="form-control" name="dateResultat" formControlName="dateResultat" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.dateReglement" for="field_dateReglement">Date Reglement</label>
+                    <div class="d-flex">
+                        <input id="field_dateReglement" type="datetime-local" class="form-control" name="dateReglement" formControlName="dateReglement" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.dateValeur" for="field_dateValeur">Date Valeur</label>
+                    <div class="input-group">
+                        <input id="field_dateValeur" type="text" class="form-control" name="dateValeur" ngbDatepicker #dateValeurDp="ngbDatepicker" formControlName="dateValeur"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateValeurDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.operateur" for="field_operateur">Operateur</label>
+                    <input type="text" class="form-control" name="operateur" id="field_operateur"
+                           formControlName="operateur"/>
+                    <div *ngIf="editForm.get('operateur')!.invalid && (editForm.get('operateur')!.dirty || editForm.get('operateur')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('operateur')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.dateOperation" for="field_dateOperation">Date Operation</label>
+                    <div class="d-flex">
+                        <input id="field_dateOperation" type="datetime-local" class="form-control" name="dateOperation" formControlName="dateOperation" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dateOperation')!.invalid && (editForm.get('dateOperation')!.dirty || editForm.get('dateOperation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateOperation')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dateOperation')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.avisEmission" for="field_avisEmission">Avis Emission</label>
+                    <select class="form-control" id="field_avisEmission" name="avisEmission" formControlName="avisEmissionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="avisEmissionOption.id" *ngFor="let avisEmissionOption of avisemissions; trackBy: trackById">{{ avisEmissionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.emission.natureTitre" for="field_natureTitre">Nature Titre</label>
+                    <select class="form-control" id="field_natureTitre" name="natureTitre" formControlName="natureTitreId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="natureTitreOption.id" *ngFor="let natureTitreOption of naturetitres; trackBy: trackById">{{ natureTitreOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

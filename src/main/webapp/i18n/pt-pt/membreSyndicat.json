@@ -1,0 +1,26 @@
+{
+  "ibondgeneApp": {
+    "membreSyndicat": {
+      "home": {
+        "title": "Membre Syndicats",
+        "createLabel": "Criar novo(a) Membre Syndicat",
+        "createOrEditLabel": "Criar ou editar Membre Syndicat",
+        "notFound": "Nenhum Membre Syndicats encontrado"
+      },
+      "created": "Um novo Membre Syndicat foi criado com o identificador {{ param }}",
+      "updated": "Membre Syndicat com identificador {{ param }} foi actualizado",
+      "deleted": "Membre Syndicat com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Membre Syndicat {{ id }}?"
+      },
+      "detail": {
+        "title": "Membre Syndicat"
+      },
+      "rang": "Rang",
+      "commission": "Commission",
+      "operateur": "Operateur",
+      "dateOperation": "Date Operation",
+      "emission": "Emission"
+    }
+  }
+}

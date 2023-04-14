@@ -1,0 +1,320 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-resultat-heading" jhiTranslate="ibondgeneApp.resultat.home.createOrEditLabel">Create or edit a Resultat</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.nbreSvtTotal" for="field_nbreSvtTotal">Nbre Svt Total</label>
+                    <input type="number" class="form-control" name="nbreSvtTotal" id="field_nbreSvtTotal"
+                           formControlName="nbreSvtTotal"/>
+                    <div *ngIf="editForm.get('nbreSvtTotal')!.invalid && (editForm.get('nbreSvtTotal')!.dirty || editForm.get('nbreSvtTotal')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nbreSvtTotal')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('nbreSvtTotal')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.nbreSvtSoumis" for="field_nbreSvtSoumis">Nbre Svt Soumis</label>
+                    <input type="number" class="form-control" name="nbreSvtSoumis" id="field_nbreSvtSoumis"
+                           formControlName="nbreSvtSoumis"/>
+                    <div *ngIf="editForm.get('nbreSvtSoumis')!.invalid && (editForm.get('nbreSvtSoumis')!.dirty || editForm.get('nbreSvtSoumis')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nbreSvtSoumis')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('nbreSvtSoumis')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.montantTresor" for="field_montantTresor">Montant Tresor</label>
+                    <input type="number" class="form-control" name="montantTresor" id="field_montantTresor"
+                           formControlName="montantTresor"/>
+                    <div *ngIf="editForm.get('montantTresor')!.invalid && (editForm.get('montantTresor')!.dirty || editForm.get('montantTresor')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('montantTresor')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('montantTresor')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('montantTresor')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.uniteTresor" for="field_uniteTresor">Unite Tresor</label>
+                    <select class="form-control" name="uniteTresor" formControlName="uniteTresor" id="field_uniteTresor">
+                        <option value="Milles">{{ 'ibondgeneApp.UniteNombre.Milles' | translate }}</option>
+                        <option value="Millions">{{ 'ibondgeneApp.UniteNombre.Millions' | translate }}</option>
+                        <option value="Milliards">{{ 'ibondgeneApp.UniteNombre.Milliards' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.montantSoumis" for="field_montantSoumis">Montant Soumis</label>
+                    <input type="number" class="form-control" name="montantSoumis" id="field_montantSoumis"
+                           formControlName="montantSoumis"/>
+                    <div *ngIf="editForm.get('montantSoumis')!.invalid && (editForm.get('montantSoumis')!.dirty || editForm.get('montantSoumis')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('montantSoumis')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('montantSoumis')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('montantSoumis')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.uniteSoumis" for="field_uniteSoumis">Unite Soumis</label>
+                    <select class="form-control" name="uniteSoumis" formControlName="uniteSoumis" id="field_uniteSoumis">
+                        <option value="Milles">{{ 'ibondgeneApp.UniteNombre.Milles' | translate }}</option>
+                        <option value="Millions">{{ 'ibondgeneApp.UniteNombre.Millions' | translate }}</option>
+                        <option value="Milliards">{{ 'ibondgeneApp.UniteNombre.Milliards' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.montantServi" for="field_montantServi">Montant Servi</label>
+                    <input type="number" class="form-control" name="montantServi" id="field_montantServi"
+                           formControlName="montantServi"/>
+                    <div *ngIf="editForm.get('montantServi')!.invalid && (editForm.get('montantServi')!.dirty || editForm.get('montantServi')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('montantServi')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('montantServi')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('montantServi')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.nbreTitreTotal" for="field_nbreTitreTotal">Nbre Titre Total</label>
+                    <input type="number" class="form-control" name="nbreTitreTotal" id="field_nbreTitreTotal"
+                           formControlName="nbreTitreTotal"/>
+                    <div *ngIf="editForm.get('nbreTitreTotal')!.invalid && (editForm.get('nbreTitreTotal')!.dirty || editForm.get('nbreTitreTotal')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nbreTitreTotal')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('nbreTitreTotal')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.nbreTitreSoumis" for="field_nbreTitreSoumis">Nbre Titre Soumis</label>
+                    <input type="number" class="form-control" name="nbreTitreSoumis" id="field_nbreTitreSoumis"
+                           formControlName="nbreTitreSoumis"/>
+                    <div *ngIf="editForm.get('nbreTitreSoumis')!.invalid && (editForm.get('nbreTitreSoumis')!.dirty || editForm.get('nbreTitreSoumis')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nbreTitreSoumis')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('nbreTitreSoumis')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.tauxMinPropose" for="field_tauxMinPropose">Taux Min Propose</label>
+                    <input type="number" class="form-control" name="tauxMinPropose" id="field_tauxMinPropose"
+                           formControlName="tauxMinPropose"/>
+                    <div *ngIf="editForm.get('tauxMinPropose')!.invalid && (editForm.get('tauxMinPropose')!.dirty || editForm.get('tauxMinPropose')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxMinPropose')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxMinPropose')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 100 }">
+                            This field cannot be more than 100.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('tauxMinPropose')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.tauxMaxPropose" for="field_tauxMaxPropose">Taux Max Propose</label>
+                    <input type="number" class="form-control" name="tauxMaxPropose" id="field_tauxMaxPropose"
+                           formControlName="tauxMaxPropose"/>
+                    <div *ngIf="editForm.get('tauxMaxPropose')!.invalid && (editForm.get('tauxMaxPropose')!.dirty || editForm.get('tauxMaxPropose')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxMaxPropose')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxMaxPropose')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 100 }">
+                            This field cannot be more than 100.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('tauxMaxPropose')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.tauxLimite" for="field_tauxLimite">Taux Limite</label>
+                    <input type="number" class="form-control" name="tauxLimite" id="field_tauxLimite"
+                           formControlName="tauxLimite"/>
+                    <div *ngIf="editForm.get('tauxLimite')!.invalid && (editForm.get('tauxLimite')!.dirty || editForm.get('tauxLimite')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxLimite')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxLimite')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 100 }">
+                            This field cannot be more than 100.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('tauxLimite')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.tauxInteretMoyen" for="field_tauxInteretMoyen">Taux Interet Moyen</label>
+                    <input type="number" class="form-control" name="tauxInteretMoyen" id="field_tauxInteretMoyen"
+                           formControlName="tauxInteretMoyen"/>
+                    <div *ngIf="editForm.get('tauxInteretMoyen')!.invalid && (editForm.get('tauxInteretMoyen')!.dirty || editForm.get('tauxInteretMoyen')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxInteretMoyen')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxInteretMoyen')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 100 }">
+                            This field cannot be more than 100.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('tauxInteretMoyen')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.tauxRendementMoyen" for="field_tauxRendementMoyen">Taux Rendement Moyen</label>
+                    <input type="number" class="form-control" name="tauxRendementMoyen" id="field_tauxRendementMoyen"
+                           formControlName="tauxRendementMoyen"/>
+                    <div *ngIf="editForm.get('tauxRendementMoyen')!.invalid && (editForm.get('tauxRendementMoyen')!.dirty || editForm.get('tauxRendementMoyen')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxRendementMoyen')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxRendementMoyen')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 100 }">
+                            This field cannot be more than 100.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('tauxRendementMoyen')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.tauxCouverture" for="field_tauxCouverture">Taux Couverture</label>
+                    <input type="number" class="form-control" name="tauxCouverture" id="field_tauxCouverture"
+                           formControlName="tauxCouverture"/>
+                    <div *ngIf="editForm.get('tauxCouverture')!.invalid && (editForm.get('tauxCouverture')!.dirty || editForm.get('tauxCouverture')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxCouverture')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxCouverture')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 100 }">
+                            This field cannot be more than 100.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('tauxCouverture')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.emission" for="field_emission">Emission</label>
+                    <select class="form-control" id="field_emission" name="emission" formControlName="emissionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="emissionOption.id" *ngFor="let emissionOption of emissions; trackBy: trackById">{{ emissionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.resultat" for="field_resultat">Resultat</label>
+                    <select class="form-control" id="field_resultat" name="resultat" formControlName="resultatId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reouvertureOption.id" *ngFor="let reouvertureOption of reouvertures; trackBy: trackById">{{ reouvertureOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.rachat" for="field_rachat">Rachat</label>
+                    <select class="form-control" id="field_rachat" name="rachat" formControlName="rachatId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="rachatOption.id" *ngFor="let rachatOption of rachats; trackBy: trackById">{{ rachatOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.resultat.onc" for="field_onc">Onc</label>
+                    <select class="form-control" id="field_onc" name="onc" formControlName="oncId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="oncOption.id" *ngFor="let oncOption of oncs; trackBy: trackById">{{ oncOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="calendrier">
+            <h2><span jhiTranslate="ibondgeneApp.calendrier.detail.title">Calendrier</span> {{ calendrier.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ibondgeneApp.calendrier.nature">Nature</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.NatureActe.' + calendrier.nature }}">{{ calendrier.nature }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.calendrier.numero">Numero</span></dt>
+                <dd>
+                    <span>{{ calendrier.numero }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.calendrier.reference">Reference</span></dt>
+                <dd>
+                    <span>{{ calendrier.reference }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.calendrier.signataire">Signataire</span></dt>
+                <dd>
+                    <span>{{ calendrier.signataire }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.calendrier.titreCalendrierFr">Titre Calendrier Fr</span></dt>
+                <dd>
+                    <span>{{ calendrier.titreCalendrierFr }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.calendrier.titreCalendrierEn">Titre Calendrier En</span></dt>
+                <dd>
+                    <span>{{ calendrier.titreCalendrierEn }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.calendrier.titreCalendrierPt">Titre Calendrier Pt</span></dt>
+                <dd>
+                    <span>{{ calendrier.titreCalendrierPt }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.calendrier.etatCalendrier">Etat Calendrier</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.EtatActe.' + calendrier.etatCalendrier }}">{{ calendrier.etatCalendrier }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.calendrier.operateur">Operateur</span></dt>
+                <dd>
+                    <span>{{ calendrier.operateur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.calendrier.dateOperation">Date Operation</span></dt>
+                <dd>
+                    <span>{{ calendrier.dateOperation }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/calendrier', calendrier.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

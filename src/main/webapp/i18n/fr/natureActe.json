@@ -1,0 +1,11 @@
+{
+  "ibondgeneApp": {
+    "NatureActe": {
+      "null": "",
+      "Avis": "Avis",
+      "Calendrier": "Calendrier",
+      "Communique": "Communique",
+      "Resultat": "Resultat"
+    }
+  }
+}

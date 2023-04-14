@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="adjudication">
+            <h2><span jhiTranslate="ibondgeneApp.adjudication.detail.title">Adjudication</span> {{ adjudication.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ibondgeneApp.adjudication.rang">Rang</span></dt>
+                <dd>
+                    <span>{{ adjudication.rang }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.adjudication.observationFr">Observation Fr</span></dt>
+                <dd>
+                    <span>{{ adjudication.observationFr }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.adjudication.observationEn">Observation En</span></dt>
+                <dd>
+                    <span>{{ adjudication.observationEn }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.adjudication.observationPt">Observation Pt</span></dt>
+                <dd>
+                    <span>{{ adjudication.observationPt }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.adjudication.reouverture">Reouverture</span></dt>
+                <dd>
+                    <div *ngIf="adjudication.reouvertureId">
+                        <a [routerLink]="['/reouverture', adjudication.reouvertureId, 'view']">{{ adjudication.reouvertureId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.adjudication.rachat">Rachat</span></dt>
+                <dd>
+                    <div *ngIf="adjudication.rachatId">
+                        <a [routerLink]="['/rachat', adjudication.rachatId, 'view']">{{ adjudication.rachatId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.adjudication.onc">Onc</span></dt>
+                <dd>
+                    <div *ngIf="adjudication.oncId">
+                        <a [routerLink]="['/onc', adjudication.oncId, 'view']">{{ adjudication.oncId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/adjudication', adjudication.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

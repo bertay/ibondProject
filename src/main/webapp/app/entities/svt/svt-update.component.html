@@ -1,0 +1,107 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-svt-heading" jhiTranslate="ibondgeneApp.svt.home.createOrEditLabel">Create or edit a Svt</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.svt.abreviationFr" for="field_abreviationFr">Abreviation Fr</label>
+                    <input type="text" class="form-control" name="abreviationFr" id="field_abreviationFr"
+                           formControlName="abreviationFr"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.svt.abreviationEn" for="field_abreviationEn">Abreviation En</label>
+                    <input type="text" class="form-control" name="abreviationEn" id="field_abreviationEn"
+                           formControlName="abreviationEn"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.svt.abreviationPt" for="field_abreviationPt">Abreviation Pt</label>
+                    <input type="text" class="form-control" name="abreviationPt" id="field_abreviationPt"
+                           formControlName="abreviationPt"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.svt.designationFr" for="field_designationFr">Designation Fr</label>
+                    <input type="text" class="form-control" name="designationFr" id="field_designationFr"
+                           formControlName="designationFr"/>
+                    <div *ngIf="editForm.get('designationFr')!.invalid && (editForm.get('designationFr')!.dirty || editForm.get('designationFr')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('designationFr')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.svt.designationEn" for="field_designationEn">Designation En</label>
+                    <input type="text" class="form-control" name="designationEn" id="field_designationEn"
+                           formControlName="designationEn"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.svt.etat" for="field_etat">Etat</label>
+                    <select class="form-control" name="etat" formControlName="etat" id="field_etat">
+                        <option value="Agree">{{ 'ibondgeneApp.EtatSvt.Agree' | translate }}</option>
+                        <option value="Suspendu">{{ 'ibondgeneApp.EtatSvt.Suspendu' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.svt.operateur" for="field_operateur">Operateur</label>
+                    <input type="text" class="form-control" name="operateur" id="field_operateur"
+                           formControlName="operateur"/>
+                    <div *ngIf="editForm.get('operateur')!.invalid && (editForm.get('operateur')!.dirty || editForm.get('operateur')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('operateur')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.svt.dateOperation" for="field_dateOperation">Date Operation</label>
+                    <div class="d-flex">
+                        <input id="field_dateOperation" type="datetime-local" class="form-control" name="dateOperation" formControlName="dateOperation" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dateOperation')!.invalid && (editForm.get('dateOperation')!.dirty || editForm.get('dateOperation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateOperation')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dateOperation')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.svt.pays" for="field_pays">Pays</label>
+                    <select class="form-control" id="field_pays" name="pays" formControlName="paysId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="paysOption.id" *ngFor="let paysOption of pays; trackBy: trackById">{{ paysOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="rachat">
+            <h2><span jhiTranslate="ibondgeneApp.rachat.detail.title">Rachat</span> {{ rachat.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ibondgeneApp.rachat.codeValeur">Code Valeur</span></dt>
+                <dd>
+                    <span>{{ rachat.codeValeur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.rachat.designationFr">Designation Fr</span></dt>
+                <dd>
+                    <span>{{ rachat.designationFr }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.rachat.designationEn">Designation En</span></dt>
+                <dd>
+                    <span>{{ rachat.designationEn }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.rachat.designationPt">Designation Pt</span></dt>
+                <dd>
+                    <span>{{ rachat.designationPt }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.rachat.dateEmission">Date Emission</span></dt>
+                <dd>
+                    <span>{{ rachat.dateEmission }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.rachat.tauxInteret">Taux Interet</span></dt>
+                <dd>
+                    <span>{{ rachat.tauxInteret }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.rachat.montantNominal">Montant Nominal</span></dt>
+                <dd>
+                    <span>{{ rachat.montantNominal }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.rachat.uniteMontant">Unite Montant</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.UniteNombre.' + rachat.uniteMontant }}">{{ rachat.uniteMontant }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.rachat.devise">Devise</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.TypeValeur.' + rachat.devise }}">{{ rachat.devise }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.rachat.dateEcheance">Date Echeance</span></dt>
+                <dd>
+                    <span>{{ rachat.dateEcheance }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.rachat.dateValeur">Date Valeur</span></dt>
+                <dd>
+                    <span>{{ rachat.dateValeur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.rachat.operateur">Operateur</span></dt>
+                <dd>
+                    <span>{{ rachat.operateur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.rachat.dateOperation">Date Operation</span></dt>
+                <dd>
+                    <span>{{ rachat.dateOperation }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.rachat.emission">Emission</span></dt>
+                <dd>
+                    <div *ngIf="rachat.emissionId">
+                        <a [routerLink]="['/emission', rachat.emissionId, 'view']">{{ rachat.emissionId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/rachat', rachat.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

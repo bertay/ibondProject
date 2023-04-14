@@ -1,0 +1,27 @@
+{
+  "ibondgeneApp": {
+    "parametres": {
+      "home": {
+        "title": "Parametres",
+        "createLabel": "Criar novo(a) Parametres",
+        "createOrEditLabel": "Criar ou editar Parametres",
+        "notFound": "Nenhum Parametres encontrado"
+      },
+      "created": "Um novo Parametres foi criado com o identificador {{ param }}",
+      "updated": "Parametres com identificador {{ param }} foi actualizado",
+      "deleted": "Parametres com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Parametres {{ id }}?"
+      },
+      "detail": {
+        "title": "Parametres"
+      },
+      "adresseServeur": "Adresse Serveur",
+      "timbreService1": "Timbre Service 1",
+      "timbreService2": "Timbre Service 2",
+      "timbreService3": "Timbre Service 3",
+      "operateur": "Operateur",
+      "dateOperation": "Date Operation"
+    }
+  }
+}

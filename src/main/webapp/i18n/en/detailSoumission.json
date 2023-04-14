@@ -1,0 +1,27 @@
+{
+  "ibondgeneApp": {
+    "detailSoumission": {
+      "home": {
+        "title": "Detail Soumissions",
+        "createLabel": "Create a new Detail Soumission",
+        "createOrEditLabel": "Create or edit a Detail Soumission",
+        "notFound": "No Detail Soumissions found"
+      },
+      "created": "A new Detail Soumission is created with identifier {{ param }}",
+      "updated": "A Detail Soumission is updated with identifier {{ param }}",
+      "deleted": "A Detail Soumission is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Detail Soumission {{ id }}?"
+      },
+      "detail": {
+        "title": "Detail Soumission"
+      },
+      "montantSoumission": "Montant Soumission",
+      "tauxPropose": "Taux Propose",
+      "operateur": "Operateur",
+      "dateOperation": "Date Operation",
+      "classement": "Classement",
+      "soumission": "Soumission"
+    }
+  }
+}

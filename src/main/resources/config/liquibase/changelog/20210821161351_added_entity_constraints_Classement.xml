@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Classement.
+    -->
+    <changeSet id="20210821161351-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="detail_soumission_id"
+                                 baseTableName="classement"
+                                 constraintName="fk_classement_detail_soumission_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="detail_soumission"/>
+
+        <addForeignKeyConstraint baseColumnNames="emission_id"
+                                 baseTableName="classement"
+                                 constraintName="fk_classement_emission_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="emission"/>
+
+        <addForeignKeyConstraint baseColumnNames="reouverture_id"
+                                 baseTableName="classement"
+                                 constraintName="fk_classement_reouverture_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reouverture"/>
+
+        <addForeignKeyConstraint baseColumnNames="rachat_id"
+                                 baseTableName="classement"
+                                 constraintName="fk_classement_rachat_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rachat"/>
+
+        <addForeignKeyConstraint baseColumnNames="onc_id"
+                                 baseTableName="classement"
+                                 constraintName="fk_classement_onc_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="onc"/>
+
+    </changeSet>
+</databaseChangeLog>

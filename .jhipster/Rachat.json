@@ -1,0 +1,116 @@
+{
+  "name": "Rachat",
+  "fields": [
+    {
+      "fieldName": "codeValeur",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "designationFr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "designationEn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "designationPt",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateEmission",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tauxInteret",
+      "fieldType": "Float",
+      "fieldValidateRules": ["min", "max", "required"],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "100"
+    },
+    {
+      "fieldName": "montantNominal",
+      "fieldType": "Double",
+      "fieldValidateRules": ["min", "required"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "uniteMontant",
+      "fieldType": "UniteNombre",
+      "fieldValues": "Milles,Millions,Milliards",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "devise",
+      "fieldType": "TypeValeur",
+      "fieldValues": "FCFA,Euro,USD",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateEcheance",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateValeur",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "operateur",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateOperation",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "soumission",
+      "otherEntityRelationshipName": "rachat",
+      "relationshipName": "soumission"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "adjudication",
+      "otherEntityRelationshipName": "rachat",
+      "relationshipName": "adjudication"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "classement",
+      "otherEntityRelationshipName": "rachat",
+      "relationshipName": "classement"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "resultat",
+      "otherEntityRelationshipName": "rachat",
+      "relationshipName": "resultat"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "emission",
+      "otherEntityRelationshipName": "rachat",
+      "relationshipName": "emission",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210821162151",
+  "javadoc": "Entite Rachat",
+  "entityTableName": "rachat",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

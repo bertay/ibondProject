@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ibondgeneApp.rachat.home.title">Rachats</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-rachat" [routerLink]="['/rachat/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ibondgeneApp.rachat.home.createLabel">
+            Create a new Rachat
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="rachats?.length === 0">
+        <span jhiTranslate="ibondgeneApp.rachat.home.notFound">No rachats found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="rachats && rachats.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.rachat.codeValeur">Code Valeur</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.rachat.designationFr">Designation Fr</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.rachat.designationEn">Designation En</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.rachat.designationPt">Designation Pt</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.rachat.dateEmission">Date Emission</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.rachat.tauxInteret">Taux Interet</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.rachat.montantNominal">Montant Nominal</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.rachat.uniteMontant">Unite Montant</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.rachat.devise">Devise</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.rachat.dateEcheance">Date Echeance</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.rachat.dateValeur">Date Valeur</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.rachat.operateur">Operateur</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.rachat.dateOperation">Date Operation</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.rachat.emission">Emission</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rachat of rachats ;trackBy: trackId">
+                    <td><a [routerLink]="['/rachat', rachat.id, 'view']">{{ rachat.id }}</a></td>
+                    <td>{{ rachat.codeValeur }}</td>
+                    <td>{{ rachat.designationFr }}</td>
+                    <td>{{ rachat.designationEn }}</td>
+                    <td>{{ rachat.designationPt }}</td>
+                    <td>{{ rachat.dateEmission | date:'mediumDate' }}</td>
+                    <td>{{ rachat.tauxInteret }}</td>
+                    <td>{{ rachat.montantNominal }}</td>
+                    <td jhiTranslate="{{ 'ibondgeneApp.UniteNombre.' + rachat.uniteMontant }}">{{ rachat.uniteMontant }}</td>
+                    <td jhiTranslate="{{ 'ibondgeneApp.TypeValeur.' + rachat.devise }}">{{ rachat.devise }}</td>
+                    <td>{{ rachat.dateEcheance | date:'mediumDate' }}</td>
+                    <td>{{ rachat.dateValeur | date:'mediumDate' }}</td>
+                    <td>{{ rachat.operateur }}</td>
+                    <td>{{ rachat.dateOperation | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="rachat.emissionId">
+                            <a [routerLink]="['/emission', rachat.emissionId , 'view']" >{{ rachat.emissionId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/rachat', rachat.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/rachat', rachat.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(rachat)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

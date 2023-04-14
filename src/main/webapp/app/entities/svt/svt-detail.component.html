@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="svt">
+            <h2><span jhiTranslate="ibondgeneApp.svt.detail.title">Svt</span> {{ svt.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ibondgeneApp.svt.abreviationFr">Abreviation Fr</span></dt>
+                <dd>
+                    <span>{{ svt.abreviationFr }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.svt.abreviationEn">Abreviation En</span></dt>
+                <dd>
+                    <span>{{ svt.abreviationEn }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.svt.abreviationPt">Abreviation Pt</span></dt>
+                <dd>
+                    <span>{{ svt.abreviationPt }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.svt.designationFr">Designation Fr</span></dt>
+                <dd>
+                    <span>{{ svt.designationFr }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.svt.designationEn">Designation En</span></dt>
+                <dd>
+                    <span>{{ svt.designationEn }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.svt.etat">Etat</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.EtatSvt.' + svt.etat }}">{{ svt.etat }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.svt.operateur">Operateur</span></dt>
+                <dd>
+                    <span>{{ svt.operateur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.svt.dateOperation">Date Operation</span></dt>
+                <dd>
+                    <span>{{ svt.dateOperation }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.svt.pays">Pays</span></dt>
+                <dd>
+                    <div *ngIf="svt.paysId">
+                        <a [routerLink]="['/pays', svt.paysId, 'view']">{{ svt.paysId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/svt', svt.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

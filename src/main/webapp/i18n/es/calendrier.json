@@ -1,0 +1,32 @@
+{
+  "ibondgeneApp": {
+    "calendrier": {
+      "home": {
+        "title": "Calendriers",
+        "createLabel": "Crear nuevo Calendrier",
+        "createOrEditLabel": "Crear o editar Calendrier",
+        "notFound": "Ningún Calendriers encontrado"
+      },
+      "created": "Un nuevo Calendrier ha sido creado con el identificador {{ param }}",
+      "updated": "Un Calendrier ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Calendrier ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Calendrier {{ id }}?"
+      },
+      "detail": {
+        "title": "Calendrier"
+      },
+      "nature": "Nature",
+      "numero": "Numero",
+      "reference": "Reference",
+      "signataire": "Signataire",
+      "titreCalendrierFr": "Titre Calendrier Fr",
+      "titreCalendrierEn": "Titre Calendrier En",
+      "titreCalendrierPt": "Titre Calendrier Pt",
+      "etatCalendrier": "Etat Calendrier",
+      "operateur": "Operateur",
+      "dateOperation": "Date Operation",
+      "detailCalendrier": "Detail Calendrier"
+    }
+  }
+}

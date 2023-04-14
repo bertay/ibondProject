@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="avisEmission">
+            <h2><span jhiTranslate="ibondgeneApp.avisEmission.detail.title">Avis Emission</span> {{ avisEmission.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ibondgeneApp.avisEmission.nature">Nature</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.NatureActe.' + avisEmission.nature }}">{{ avisEmission.nature }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.avisEmission.numero">Numero</span></dt>
+                <dd>
+                    <span>{{ avisEmission.numero }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.avisEmission.reference">Reference</span></dt>
+                <dd>
+                    <span>{{ avisEmission.reference }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.avisEmission.signataire">Signataire</span></dt>
+                <dd>
+                    <span>{{ avisEmission.signataire }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.avisEmission.objetAvisFr">Objet Avis Fr</span></dt>
+                <dd>
+                    <span>{{ avisEmission.objetAvisFr }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.avisEmission.objetAvisEn">Objet Avis En</span></dt>
+                <dd>
+                    <span>{{ avisEmission.objetAvisEn }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.avisEmission.objetAvisPt">Objet Avis Pt</span></dt>
+                <dd>
+                    <span>{{ avisEmission.objetAvisPt }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.avisEmission.etatAvis">Etat Avis</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.EtatActe.' + avisEmission.etatAvis }}">{{ avisEmission.etatAvis }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.avisEmission.operateur">Operateur</span></dt>
+                <dd>
+                    <span>{{ avisEmission.operateur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.avisEmission.dateOperation">Date Operation</span></dt>
+                <dd>
+                    <span>{{ avisEmission.dateOperation }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/avis-emission', avisEmission.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

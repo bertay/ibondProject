@@ -1,0 +1,30 @@
+{
+  "ibondgeneApp": {
+    "classement": {
+      "home": {
+        "title": "Classements",
+        "createLabel": "Créer un nouveau Classement",
+        "createOrEditLabel": "Créer ou éditer un Classement",
+        "notFound": "Aucun Classement trouvé"
+      },
+      "created": "Un nouveau Classement a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Classement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Classement avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Classement {{ id }} ?"
+      },
+      "detail": {
+        "title": "Classement"
+      },
+      "rang": "Rang",
+      "observationFr": "Observation Fr",
+      "observationEn": "Observation En",
+      "observationPt": "Observation Pt",
+      "detailSoumission": "Detail Soumission",
+      "emission": "Emission",
+      "reouverture": "Reouverture",
+      "rachat": "Rachat",
+      "onc": "Onc"
+    }
+  }
+}

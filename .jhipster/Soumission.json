@@ -1,0 +1,79 @@
+{
+  "name": "Soumission",
+  "fields": [
+    {
+      "fieldName": "numAnonymat",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateSoumission",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "nbreSoumission",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "operateur",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateOperation",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "detailSoumission",
+      "otherEntityRelationshipName": "soumission",
+      "relationshipName": "detailSoumission"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "emission",
+      "otherEntityRelationshipName": "soumission",
+      "relationshipName": "emission",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "reouverture",
+      "otherEntityRelationshipName": "soumission",
+      "relationshipName": "reouverture",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "rachat",
+      "otherEntityRelationshipName": "soumission",
+      "relationshipName": "rachat",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "onc",
+      "otherEntityRelationshipName": "soumission",
+      "relationshipName": "onc",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210821161151",
+  "javadoc": "Entite Soumission",
+  "entityTableName": "soumission",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,130 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="emission">
+            <h2><span jhiTranslate="ibondgeneApp.emission.detail.title">Emission</span> {{ emission.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ibondgeneApp.emission.codeEmission">Code Emission</span></dt>
+                <dd>
+                    <span>{{ emission.codeEmission }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.designationFr">Designation Fr</span></dt>
+                <dd>
+                    <span>{{ emission.designationFr }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.designationEn">Designation En</span></dt>
+                <dd>
+                    <span>{{ emission.designationEn }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.designationPt">Designation Pt</span></dt>
+                <dd>
+                    <span>{{ emission.designationPt }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.dateEmission">Date Emission</span></dt>
+                <dd>
+                    <span>{{ emission.dateEmission }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.echeance">Echeance</span></dt>
+                <dd>
+                    <span>{{ emission.echeance }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.duree">Duree</span></dt>
+                <dd>
+                    <span>{{ emission.duree }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.remboursement">Remboursement</span></dt>
+                <dd>
+                    <span>{{ emission.remboursement }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.formeTitre">Forme Titre</span></dt>
+                <dd>
+                    <span>{{ emission.formeTitre }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.tauxInteret">Taux Interet</span></dt>
+                <dd>
+                    <span>{{ emission.tauxInteret }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.volumeEmission">Volume Emission</span></dt>
+                <dd>
+                    <span>{{ emission.volumeEmission }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.uniteVolume">Unite Volume</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.UniteNombre.' + emission.uniteVolume }}">{{ emission.uniteVolume }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.valeurNominale">Valeur Nominale</span></dt>
+                <dd>
+                    <span>{{ emission.valeurNominale }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.devise">Devise</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.TypeValeur.' + emission.devise }}">{{ emission.devise }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.quantiteTitre">Quantite Titre</span></dt>
+                <dd>
+                    <span>{{ emission.quantiteTitre }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.rendement">Rendement</span></dt>
+                <dd>
+                    <span>{{ emission.rendement }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.dateLimite">Date Limite</span></dt>
+                <dd>
+                    <span>{{ emission.dateLimite }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.lieuSouscription">Lieu Souscription</span></dt>
+                <dd>
+                    <span>{{ emission.lieuSouscription }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.dateResultat">Date Resultat</span></dt>
+                <dd>
+                    <span>{{ emission.dateResultat }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.dateReglement">Date Reglement</span></dt>
+                <dd>
+                    <span>{{ emission.dateReglement }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.dateValeur">Date Valeur</span></dt>
+                <dd>
+                    <span>{{ emission.dateValeur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.operateur">Operateur</span></dt>
+                <dd>
+                    <span>{{ emission.operateur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.dateOperation">Date Operation</span></dt>
+                <dd>
+                    <span>{{ emission.dateOperation }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.avisEmission">Avis Emission</span></dt>
+                <dd>
+                    <div *ngIf="emission.avisEmissionId">
+                        <a [routerLink]="['/avis-emission', emission.avisEmissionId, 'view']">{{ emission.avisEmissionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.emission.natureTitre">Nature Titre</span></dt>
+                <dd>
+                    <div *ngIf="emission.natureTitreId">
+                        <a [routerLink]="['/nature-titre', emission.natureTitreId, 'view']">{{ emission.natureTitreId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/emission', emission.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

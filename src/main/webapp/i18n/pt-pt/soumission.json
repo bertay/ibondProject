@@ -1,0 +1,31 @@
+{
+  "ibondgeneApp": {
+    "soumission": {
+      "home": {
+        "title": "Soumissions",
+        "createLabel": "Criar novo(a) Soumission",
+        "createOrEditLabel": "Criar ou editar Soumission",
+        "notFound": "Nenhum Soumissions encontrado"
+      },
+      "created": "Um novo Soumission foi criado com o identificador {{ param }}",
+      "updated": "Soumission com identificador {{ param }} foi actualizado",
+      "deleted": "Soumission com identificador {{ param }} foi eliminado",
+      "delete": {
+        "question": "Tem a certeza que pretende eliminar o(a) Soumission {{ id }}?"
+      },
+      "detail": {
+        "title": "Soumission"
+      },
+      "numAnonymat": "Num Anonymat",
+      "dateSoumission": "Date Soumission",
+      "nbreSoumission": "Nbre Soumission",
+      "operateur": "Operateur",
+      "dateOperation": "Date Operation",
+      "detailSoumission": "Detail Soumission",
+      "emission": "Emission",
+      "reouverture": "Reouverture",
+      "rachat": "Rachat",
+      "onc": "Onc"
+    }
+  }
+}

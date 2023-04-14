@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-membre-syndicat-heading" jhiTranslate="ibondgeneApp.membreSyndicat.home.createOrEditLabel">Create or edit a Membre Syndicat</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.membreSyndicat.rang" for="field_rang">Rang</label>
+                    <select class="form-control" name="rang" formControlName="rang" id="field_rang">
+                        <option value="Chef_file">{{ 'ibondgeneApp.TypeRang.Chef_file' | translate }}</option>
+                        <option value="Membre">{{ 'ibondgeneApp.TypeRang.Membre' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.membreSyndicat.commission" for="field_commission">Commission</label>
+                    <input type="number" class="form-control" name="commission" id="field_commission"
+                           formControlName="commission"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.membreSyndicat.operateur" for="field_operateur">Operateur</label>
+                    <input type="text" class="form-control" name="operateur" id="field_operateur"
+                           formControlName="operateur"/>
+                    <div *ngIf="editForm.get('operateur')!.invalid && (editForm.get('operateur')!.dirty || editForm.get('operateur')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('operateur')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.membreSyndicat.dateOperation" for="field_dateOperation">Date Operation</label>
+                    <div class="d-flex">
+                        <input id="field_dateOperation" type="datetime-local" class="form-control" name="dateOperation" formControlName="dateOperation" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dateOperation')!.invalid && (editForm.get('dateOperation')!.dirty || editForm.get('dateOperation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateOperation')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dateOperation')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.membreSyndicat.emission" for="field_emission">Emission</label>
+                    <select class="form-control" id="field_emission" name="emission" formControlName="emissionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="emissionOption.id" *ngFor="let emissionOption of emissions; trackBy: trackById">{{ emissionOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "ibondgeneApp": {
+    "UniteNombre": {
+      "null": "",
+      "Milles": "Milles",
+      "Millions": "Millions",
+      "Milliards": "Milliards"
+    }
+  }
+}

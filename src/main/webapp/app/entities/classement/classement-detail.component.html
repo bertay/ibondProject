@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="classement">
+            <h2><span jhiTranslate="ibondgeneApp.classement.detail.title">Classement</span> {{ classement.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ibondgeneApp.classement.rang">Rang</span></dt>
+                <dd>
+                    <span>{{ classement.rang }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.classement.observationFr">Observation Fr</span></dt>
+                <dd>
+                    <span>{{ classement.observationFr }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.classement.observationEn">Observation En</span></dt>
+                <dd>
+                    <span>{{ classement.observationEn }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.classement.observationPt">Observation Pt</span></dt>
+                <dd>
+                    <span>{{ classement.observationPt }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.classement.detailSoumission">Detail Soumission</span></dt>
+                <dd>
+                    <div *ngIf="classement.detailSoumissionId">
+                        <a [routerLink]="['/detail-soumission', classement.detailSoumissionId, 'view']">{{ classement.detailSoumissionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.classement.emission">Emission</span></dt>
+                <dd>
+                    <div *ngIf="classement.emissionId">
+                        <a [routerLink]="['/emission', classement.emissionId, 'view']">{{ classement.emissionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.classement.reouverture">Reouverture</span></dt>
+                <dd>
+                    <div *ngIf="classement.reouvertureId">
+                        <a [routerLink]="['/reouverture', classement.reouvertureId, 'view']">{{ classement.reouvertureId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.classement.rachat">Rachat</span></dt>
+                <dd>
+                    <div *ngIf="classement.rachatId">
+                        <a [routerLink]="['/rachat', classement.rachatId, 'view']">{{ classement.rachatId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.classement.onc">Onc</span></dt>
+                <dd>
+                    <div *ngIf="classement.oncId">
+                        <a [routerLink]="['/onc', classement.oncId, 'view']">{{ classement.oncId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/classement', classement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

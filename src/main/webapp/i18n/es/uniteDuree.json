@@ -1,0 +1,10 @@
+{
+  "ibondgeneApp": {
+    "UniteDuree": {
+      "null": "",
+      "Jours": "Jours",
+      "Semaines": "Semaines",
+      "Annees": "Annees"
+    }
+  }
+}

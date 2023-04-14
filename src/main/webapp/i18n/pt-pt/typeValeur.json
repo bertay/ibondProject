@@ -1,0 +1,10 @@
+{
+  "ibondgeneApp": {
+    "TypeValeur": {
+      "null": "",
+      "FCFA": "FCFA",
+      "Euro": "Euro",
+      "USD": "USD"
+    }
+  }
+}

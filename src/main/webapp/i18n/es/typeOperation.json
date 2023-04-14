@@ -1,0 +1,11 @@
+{
+  "ibondgeneApp": {
+    "TypeOperation": {
+      "null": "",
+      "Normale": "Normale",
+      "Reouverture": "Reouverture",
+      "Rachat": "Rachat",
+      "Syndication": "Syndication"
+    }
+  }
+}

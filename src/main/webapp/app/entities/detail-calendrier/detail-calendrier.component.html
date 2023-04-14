@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ibondgeneApp.detailCalendrier.home.title">Detail Calendriers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-detail-calendrier" [routerLink]="['/detail-calendrier/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ibondgeneApp.detailCalendrier.home.createLabel">
+            Create a new Detail Calendrier
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="detailCalendriers?.length === 0">
+        <span jhiTranslate="ibondgeneApp.detailCalendrier.home.notFound">No detailCalendriers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="detailCalendriers && detailCalendriers.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.detailCalendrier.periode">Periode</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.detailCalendrier.annee">Annee</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.detailCalendrier.dateAnnonce">Date Annonce</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.detailCalendrier.dateAdjudication">Date Adjudication</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.detailCalendrier.dateEcheance">Date Echeance</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.detailCalendrier.duree">Duree</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.detailCalendrier.volumeEmission">Volume Emission</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.detailCalendrier.uniteVolume">Unite Volume</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.detailCalendrier.devise">Devise</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.detailCalendrier.dateValeur">Date Valeur</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.detailCalendrier.nature">Nature</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.detailCalendrier.operateur">Operateur</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.detailCalendrier.dateOperation">Date Operation</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.detailCalendrier.calendrier">Calendrier</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let detailCalendrier of detailCalendriers ;trackBy: trackId">
+                    <td><a [routerLink]="['/detail-calendrier', detailCalendrier.id, 'view']">{{ detailCalendrier.id }}</a></td>
+                    <td>{{ detailCalendrier.periode }}</td>
+                    <td>{{ detailCalendrier.annee }}</td>
+                    <td>{{ detailCalendrier.dateAnnonce | date:'mediumDate' }}</td>
+                    <td>{{ detailCalendrier.dateAdjudication | date:'mediumDate' }}</td>
+                    <td>{{ detailCalendrier.dateEcheance | date:'mediumDate' }}</td>
+                    <td>{{ detailCalendrier.duree }}</td>
+                    <td>{{ detailCalendrier.volumeEmission }}</td>
+                    <td jhiTranslate="{{ 'ibondgeneApp.UniteNombre.' + detailCalendrier.uniteVolume }}">{{ detailCalendrier.uniteVolume }}</td>
+                    <td jhiTranslate="{{ 'ibondgeneApp.TypeValeur.' + detailCalendrier.devise }}">{{ detailCalendrier.devise }}</td>
+                    <td>{{ detailCalendrier.dateValeur | date:'mediumDate' }}</td>
+                    <td jhiTranslate="{{ 'ibondgeneApp.TypeOperation.' + detailCalendrier.nature }}">{{ detailCalendrier.nature }}</td>
+                    <td>{{ detailCalendrier.operateur }}</td>
+                    <td>{{ detailCalendrier.dateOperation | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="detailCalendrier.calendrierId">
+                            <a [routerLink]="['/calendrier', detailCalendrier.calendrierId , 'view']" >{{ detailCalendrier.calendrierId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/detail-calendrier', detailCalendrier.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/detail-calendrier', detailCalendrier.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(detailCalendrier)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

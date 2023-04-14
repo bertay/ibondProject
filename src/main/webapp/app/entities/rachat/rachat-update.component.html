@@ -1,0 +1,209 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-rachat-heading" jhiTranslate="ibondgeneApp.rachat.home.createOrEditLabel">Create or edit a Rachat</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.rachat.codeValeur" for="field_codeValeur">Code Valeur</label>
+                    <input type="text" class="form-control" name="codeValeur" id="field_codeValeur"
+                           formControlName="codeValeur"/>
+                    <div *ngIf="editForm.get('codeValeur')!.invalid && (editForm.get('codeValeur')!.dirty || editForm.get('codeValeur')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeValeur')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.rachat.designationFr" for="field_designationFr">Designation Fr</label>
+                    <input type="text" class="form-control" name="designationFr" id="field_designationFr"
+                           formControlName="designationFr"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.rachat.designationEn" for="field_designationEn">Designation En</label>
+                    <input type="text" class="form-control" name="designationEn" id="field_designationEn"
+                           formControlName="designationEn"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.rachat.designationPt" for="field_designationPt">Designation Pt</label>
+                    <input type="text" class="form-control" name="designationPt" id="field_designationPt"
+                           formControlName="designationPt"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.rachat.dateEmission" for="field_dateEmission">Date Emission</label>
+                    <div class="input-group">
+                        <input id="field_dateEmission" type="text" class="form-control" name="dateEmission" ngbDatepicker #dateEmissionDp="ngbDatepicker" formControlName="dateEmission"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateEmissionDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateEmission')!.invalid && (editForm.get('dateEmission')!.dirty || editForm.get('dateEmission')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateEmission')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.rachat.tauxInteret" for="field_tauxInteret">Taux Interet</label>
+                    <input type="number" class="form-control" name="tauxInteret" id="field_tauxInteret"
+                           formControlName="tauxInteret"/>
+                    <div *ngIf="editForm.get('tauxInteret')!.invalid && (editForm.get('tauxInteret')!.dirty || editForm.get('tauxInteret')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxInteret')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxInteret')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tauxInteret')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 100 }">
+                            This field cannot be more than 100.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('tauxInteret')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.rachat.montantNominal" for="field_montantNominal">Montant Nominal</label>
+                    <input type="number" class="form-control" name="montantNominal" id="field_montantNominal"
+                           formControlName="montantNominal"/>
+                    <div *ngIf="editForm.get('montantNominal')!.invalid && (editForm.get('montantNominal')!.dirty || editForm.get('montantNominal')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('montantNominal')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('montantNominal')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('montantNominal')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.rachat.uniteMontant" for="field_uniteMontant">Unite Montant</label>
+                    <select class="form-control" name="uniteMontant" formControlName="uniteMontant" id="field_uniteMontant">
+                        <option value="Milles">{{ 'ibondgeneApp.UniteNombre.Milles' | translate }}</option>
+                        <option value="Millions">{{ 'ibondgeneApp.UniteNombre.Millions' | translate }}</option>
+                        <option value="Milliards">{{ 'ibondgeneApp.UniteNombre.Milliards' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('uniteMontant')!.invalid && (editForm.get('uniteMontant')!.dirty || editForm.get('uniteMontant')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('uniteMontant')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.rachat.devise" for="field_devise">Devise</label>
+                    <select class="form-control" name="devise" formControlName="devise" id="field_devise">
+                        <option value="FCFA">{{ 'ibondgeneApp.TypeValeur.FCFA' | translate }}</option>
+                        <option value="Euro">{{ 'ibondgeneApp.TypeValeur.Euro' | translate }}</option>
+                        <option value="USD">{{ 'ibondgeneApp.TypeValeur.USD' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('devise')!.invalid && (editForm.get('devise')!.dirty || editForm.get('devise')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('devise')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.rachat.dateEcheance" for="field_dateEcheance">Date Echeance</label>
+                    <div class="input-group">
+                        <input id="field_dateEcheance" type="text" class="form-control" name="dateEcheance" ngbDatepicker #dateEcheanceDp="ngbDatepicker" formControlName="dateEcheance"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateEcheanceDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateEcheance')!.invalid && (editForm.get('dateEcheance')!.dirty || editForm.get('dateEcheance')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateEcheance')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.rachat.dateValeur" for="field_dateValeur">Date Valeur</label>
+                    <div class="input-group">
+                        <input id="field_dateValeur" type="text" class="form-control" name="dateValeur" ngbDatepicker #dateValeurDp="ngbDatepicker" formControlName="dateValeur"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateValeurDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.rachat.operateur" for="field_operateur">Operateur</label>
+                    <input type="text" class="form-control" name="operateur" id="field_operateur"
+                           formControlName="operateur"/>
+                    <div *ngIf="editForm.get('operateur')!.invalid && (editForm.get('operateur')!.dirty || editForm.get('operateur')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('operateur')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.rachat.dateOperation" for="field_dateOperation">Date Operation</label>
+                    <div class="d-flex">
+                        <input id="field_dateOperation" type="datetime-local" class="form-control" name="dateOperation" formControlName="dateOperation" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dateOperation')!.invalid && (editForm.get('dateOperation')!.dirty || editForm.get('dateOperation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateOperation')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dateOperation')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.rachat.emission" for="field_emission">Emission</label>
+                    <select class="form-control" id="field_emission" name="emission" formControlName="emissionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="emissionOption.id" *ngFor="let emissionOption of emissions; trackBy: trackById">{{ emissionOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

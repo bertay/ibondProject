@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Reouverture.
+    -->
+    <changeSet id="20210821162051-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="emission_id"
+                                 baseTableName="reouverture"
+                                 constraintName="fk_reouverture_emission_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="emission"/>
+
+    </changeSet>
+</databaseChangeLog>

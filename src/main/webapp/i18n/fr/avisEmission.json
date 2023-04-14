@@ -1,0 +1,32 @@
+{
+  "ibondgeneApp": {
+    "avisEmission": {
+      "home": {
+        "title": "AvisEmissions",
+        "createLabel": "Créer un nouveau Avis Emission",
+        "createOrEditLabel": "Créer ou éditer un Avis Emission",
+        "notFound": "Aucun Avis Emission trouvé"
+      },
+      "created": "Un nouveau Avis Emission a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Avis Emission avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Avis Emission avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Avis Emission {{ id }} ?"
+      },
+      "detail": {
+        "title": "Avis Emission"
+      },
+      "nature": "Nature",
+      "numero": "Numero",
+      "reference": "Reference",
+      "signataire": "Signataire",
+      "objetAvisFr": "Objet Avis Fr",
+      "objetAvisEn": "Objet Avis En",
+      "objetAvisPt": "Objet Avis Pt",
+      "etatAvis": "Etat Avis",
+      "operateur": "Operateur",
+      "dateOperation": "Date Operation",
+      "emission": "Emission"
+    }
+  }
+}

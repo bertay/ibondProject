@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Soumission.
+    -->
+    <changeSet id="20210821161151-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="emission_id"
+                                 baseTableName="soumission"
+                                 constraintName="fk_soumission_emission_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="emission"/>
+
+        <addForeignKeyConstraint baseColumnNames="reouverture_id"
+                                 baseTableName="soumission"
+                                 constraintName="fk_soumission_reouverture_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reouverture"/>
+
+        <addForeignKeyConstraint baseColumnNames="rachat_id"
+                                 baseTableName="soumission"
+                                 constraintName="fk_soumission_rachat_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rachat"/>
+
+        <addForeignKeyConstraint baseColumnNames="onc_id"
+                                 baseTableName="soumission"
+                                 constraintName="fk_soumission_onc_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="onc"/>
+
+    </changeSet>
+</databaseChangeLog>

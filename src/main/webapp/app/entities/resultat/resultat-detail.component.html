@@ -1,0 +1,110 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="resultat">
+            <h2><span jhiTranslate="ibondgeneApp.resultat.detail.title">Resultat</span> {{ resultat.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ibondgeneApp.resultat.nbreSvtTotal">Nbre Svt Total</span></dt>
+                <dd>
+                    <span>{{ resultat.nbreSvtTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.nbreSvtSoumis">Nbre Svt Soumis</span></dt>
+                <dd>
+                    <span>{{ resultat.nbreSvtSoumis }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.montantTresor">Montant Tresor</span></dt>
+                <dd>
+                    <span>{{ resultat.montantTresor }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.uniteTresor">Unite Tresor</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.UniteNombre.' + resultat.uniteTresor }}">{{ resultat.uniteTresor }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.montantSoumis">Montant Soumis</span></dt>
+                <dd>
+                    <span>{{ resultat.montantSoumis }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.uniteSoumis">Unite Soumis</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.UniteNombre.' + resultat.uniteSoumis }}">{{ resultat.uniteSoumis }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.montantServi">Montant Servi</span></dt>
+                <dd>
+                    <span>{{ resultat.montantServi }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.nbreTitreTotal">Nbre Titre Total</span></dt>
+                <dd>
+                    <span>{{ resultat.nbreTitreTotal }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.nbreTitreSoumis">Nbre Titre Soumis</span></dt>
+                <dd>
+                    <span>{{ resultat.nbreTitreSoumis }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.tauxMinPropose">Taux Min Propose</span></dt>
+                <dd>
+                    <span>{{ resultat.tauxMinPropose }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.tauxMaxPropose">Taux Max Propose</span></dt>
+                <dd>
+                    <span>{{ resultat.tauxMaxPropose }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.tauxLimite">Taux Limite</span></dt>
+                <dd>
+                    <span>{{ resultat.tauxLimite }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.tauxInteretMoyen">Taux Interet Moyen</span></dt>
+                <dd>
+                    <span>{{ resultat.tauxInteretMoyen }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.tauxRendementMoyen">Taux Rendement Moyen</span></dt>
+                <dd>
+                    <span>{{ resultat.tauxRendementMoyen }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.tauxCouverture">Taux Couverture</span></dt>
+                <dd>
+                    <span>{{ resultat.tauxCouverture }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.emission">Emission</span></dt>
+                <dd>
+                    <div *ngIf="resultat.emissionId">
+                        <a [routerLink]="['/emission', resultat.emissionId, 'view']">{{ resultat.emissionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.resultat">Resultat</span></dt>
+                <dd>
+                    <div *ngIf="resultat.resultatId">
+                        <a [routerLink]="['/reouverture', resultat.resultatId, 'view']">{{ resultat.resultatId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.rachat">Rachat</span></dt>
+                <dd>
+                    <div *ngIf="resultat.rachatId">
+                        <a [routerLink]="['/rachat', resultat.rachatId, 'view']">{{ resultat.rachatId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.resultat.onc">Onc</span></dt>
+                <dd>
+                    <div *ngIf="resultat.oncId">
+                        <a [routerLink]="['/onc', resultat.oncId, 'view']">{{ resultat.oncId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/resultat', resultat.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

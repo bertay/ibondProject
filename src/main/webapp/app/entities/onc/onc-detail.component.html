@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="onc">
+            <h2><span jhiTranslate="ibondgeneApp.onc.detail.title">Onc</span> {{ onc.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ibondgeneApp.onc.operateur">Operateur</span></dt>
+                <dd>
+                    <span>{{ onc.operateur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.onc.dateOperation">Date Operation</span></dt>
+                <dd>
+                    <span>{{ onc.dateOperation }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.onc.emission">Emission</span></dt>
+                <dd>
+                    <div *ngIf="onc.emissionId">
+                        <a [routerLink]="['/emission', onc.emissionId, 'view']">{{ onc.emissionId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/onc', onc.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

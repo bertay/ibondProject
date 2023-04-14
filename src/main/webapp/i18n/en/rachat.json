@@ -1,0 +1,39 @@
+{
+  "ibondgeneApp": {
+    "rachat": {
+      "home": {
+        "title": "Rachats",
+        "createLabel": "Create a new Rachat",
+        "createOrEditLabel": "Create or edit a Rachat",
+        "notFound": "No Rachats found"
+      },
+      "created": "A new Rachat is created with identifier {{ param }}",
+      "updated": "A Rachat is updated with identifier {{ param }}",
+      "deleted": "A Rachat is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Rachat {{ id }}?"
+      },
+      "detail": {
+        "title": "Rachat"
+      },
+      "codeValeur": "Code Valeur",
+      "designationFr": "Designation Fr",
+      "designationEn": "Designation En",
+      "designationPt": "Designation Pt",
+      "dateEmission": "Date Emission",
+      "tauxInteret": "Taux Interet",
+      "montantNominal": "Montant Nominal",
+      "uniteMontant": "Unite Montant",
+      "devise": "Devise",
+      "dateEcheance": "Date Echeance",
+      "dateValeur": "Date Valeur",
+      "operateur": "Operateur",
+      "dateOperation": "Date Operation",
+      "soumission": "Soumission",
+      "adjudication": "Adjudication",
+      "classement": "Classement",
+      "resultat": "Resultat",
+      "emission": "Emission"
+    }
+  }
+}

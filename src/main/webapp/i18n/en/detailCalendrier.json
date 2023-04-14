@@ -1,0 +1,35 @@
+{
+  "ibondgeneApp": {
+    "detailCalendrier": {
+      "home": {
+        "title": "Detail Calendriers",
+        "createLabel": "Create a new Detail Calendrier",
+        "createOrEditLabel": "Create or edit a Detail Calendrier",
+        "notFound": "No Detail Calendriers found"
+      },
+      "created": "A new Detail Calendrier is created with identifier {{ param }}",
+      "updated": "A Detail Calendrier is updated with identifier {{ param }}",
+      "deleted": "A Detail Calendrier is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Detail Calendrier {{ id }}?"
+      },
+      "detail": {
+        "title": "Detail Calendrier"
+      },
+      "periode": "Periode",
+      "annee": "Annee",
+      "dateAnnonce": "Date Annonce",
+      "dateAdjudication": "Date Adjudication",
+      "dateEcheance": "Date Echeance",
+      "duree": "Duree",
+      "volumeEmission": "Volume Emission",
+      "uniteVolume": "Unite Volume",
+      "devise": "Devise",
+      "dateValeur": "Date Valeur",
+      "nature": "Nature",
+      "operateur": "Operateur",
+      "dateOperation": "Date Operation",
+      "calendrier": "Calendrier"
+    }
+  }
+}

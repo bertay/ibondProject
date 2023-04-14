@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="detailCalendrier">
+            <h2><span jhiTranslate="ibondgeneApp.detailCalendrier.detail.title">Detail Calendrier</span> {{ detailCalendrier.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ibondgeneApp.detailCalendrier.periode">Periode</span></dt>
+                <dd>
+                    <span>{{ detailCalendrier.periode }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.detailCalendrier.annee">Annee</span></dt>
+                <dd>
+                    <span>{{ detailCalendrier.annee }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.detailCalendrier.dateAnnonce">Date Annonce</span></dt>
+                <dd>
+                    <span>{{ detailCalendrier.dateAnnonce }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.detailCalendrier.dateAdjudication">Date Adjudication</span></dt>
+                <dd>
+                    <span>{{ detailCalendrier.dateAdjudication }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.detailCalendrier.dateEcheance">Date Echeance</span></dt>
+                <dd>
+                    <span>{{ detailCalendrier.dateEcheance }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.detailCalendrier.duree">Duree</span></dt>
+                <dd>
+                    <span>{{ detailCalendrier.duree }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.detailCalendrier.volumeEmission">Volume Emission</span></dt>
+                <dd>
+                    <span>{{ detailCalendrier.volumeEmission }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.detailCalendrier.uniteVolume">Unite Volume</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.UniteNombre.' + detailCalendrier.uniteVolume }}">{{ detailCalendrier.uniteVolume }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.detailCalendrier.devise">Devise</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.TypeValeur.' + detailCalendrier.devise }}">{{ detailCalendrier.devise }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.detailCalendrier.dateValeur">Date Valeur</span></dt>
+                <dd>
+                    <span>{{ detailCalendrier.dateValeur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.detailCalendrier.nature">Nature</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.TypeOperation.' + detailCalendrier.nature }}">{{ detailCalendrier.nature }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.detailCalendrier.operateur">Operateur</span></dt>
+                <dd>
+                    <span>{{ detailCalendrier.operateur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.detailCalendrier.dateOperation">Date Operation</span></dt>
+                <dd>
+                    <span>{{ detailCalendrier.dateOperation }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.detailCalendrier.calendrier">Calendrier</span></dt>
+                <dd>
+                    <div *ngIf="detailCalendrier.calendrierId">
+                        <a [routerLink]="['/calendrier', detailCalendrier.calendrierId, 'view']">{{ detailCalendrier.calendrierId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/detail-calendrier', detailCalendrier.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

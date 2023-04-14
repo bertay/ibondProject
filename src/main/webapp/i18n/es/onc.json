@@ -1,0 +1,28 @@
+{
+  "ibondgeneApp": {
+    "onc": {
+      "home": {
+        "title": "Oncs",
+        "createLabel": "Crear nuevo Onc",
+        "createOrEditLabel": "Crear o editar Onc",
+        "notFound": "Ningún Oncs encontrado"
+      },
+      "created": "Un nuevo Onc ha sido creado con el identificador {{ param }}",
+      "updated": "Un Onc ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Onc ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Onc {{ id }}?"
+      },
+      "detail": {
+        "title": "Onc"
+      },
+      "operateur": "Operateur",
+      "dateOperation": "Date Operation",
+      "soumission": "Soumission",
+      "adjudication": "Adjudication",
+      "classement": "Classement",
+      "resultat": "Resultat",
+      "emission": "Emission"
+    }
+  }
+}

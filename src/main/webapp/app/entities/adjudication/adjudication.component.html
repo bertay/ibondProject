@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ibondgeneApp.adjudication.home.title">Adjudications</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-adjudication" [routerLink]="['/adjudication/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ibondgeneApp.adjudication.home.createLabel">
+            Create a new Adjudication
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="adjudications?.length === 0">
+        <span jhiTranslate="ibondgeneApp.adjudication.home.notFound">No adjudications found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="adjudications && adjudications.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.adjudication.rang">Rang</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.adjudication.observationFr">Observation Fr</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.adjudication.observationEn">Observation En</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.adjudication.observationPt">Observation Pt</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.adjudication.reouverture">Reouverture</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.adjudication.rachat">Rachat</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.adjudication.onc">Onc</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let adjudication of adjudications ;trackBy: trackId">
+                    <td><a [routerLink]="['/adjudication', adjudication.id, 'view']">{{ adjudication.id }}</a></td>
+                    <td>{{ adjudication.rang }}</td>
+                    <td>{{ adjudication.observationFr }}</td>
+                    <td>{{ adjudication.observationEn }}</td>
+                    <td>{{ adjudication.observationPt }}</td>
+                    <td>
+                        <div *ngIf="adjudication.reouvertureId">
+                            <a [routerLink]="['/reouverture', adjudication.reouvertureId , 'view']" >{{ adjudication.reouvertureId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="adjudication.rachatId">
+                            <a [routerLink]="['/rachat', adjudication.rachatId , 'view']" >{{ adjudication.rachatId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="adjudication.oncId">
+                            <a [routerLink]="['/onc', adjudication.oncId , 'view']" >{{ adjudication.oncId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/adjudication', adjudication.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/adjudication', adjudication.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(adjudication)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

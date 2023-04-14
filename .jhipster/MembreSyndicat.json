@@ -1,0 +1,45 @@
+{
+  "name": "MembreSyndicat",
+  "fields": [
+    {
+      "fieldName": "rang",
+      "fieldType": "TypeRang",
+      "fieldValues": "Chef_file,Membre"
+    },
+    {
+      "fieldName": "commission",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "operateur",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateOperation",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "emission",
+      "otherEntityRelationshipName": "membreSyndicat",
+      "relationshipName": "emission",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210821161951",
+  "javadoc": "Entite Syndicat membre",
+  "entityTableName": "membre_syndicat",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

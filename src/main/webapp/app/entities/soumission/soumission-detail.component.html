@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="soumission">
+            <h2><span jhiTranslate="ibondgeneApp.soumission.detail.title">Soumission</span> {{ soumission.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ibondgeneApp.soumission.numAnonymat">Num Anonymat</span></dt>
+                <dd>
+                    <span>{{ soumission.numAnonymat }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.soumission.dateSoumission">Date Soumission</span></dt>
+                <dd>
+                    <span>{{ soumission.dateSoumission }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.soumission.nbreSoumission">Nbre Soumission</span></dt>
+                <dd>
+                    <span>{{ soumission.nbreSoumission }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.soumission.operateur">Operateur</span></dt>
+                <dd>
+                    <span>{{ soumission.operateur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.soumission.dateOperation">Date Operation</span></dt>
+                <dd>
+                    <span>{{ soumission.dateOperation }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.soumission.emission">Emission</span></dt>
+                <dd>
+                    <div *ngIf="soumission.emissionId">
+                        <a [routerLink]="['/emission', soumission.emissionId, 'view']">{{ soumission.emissionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.soumission.reouverture">Reouverture</span></dt>
+                <dd>
+                    <div *ngIf="soumission.reouvertureId">
+                        <a [routerLink]="['/reouverture', soumission.reouvertureId, 'view']">{{ soumission.reouvertureId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.soumission.rachat">Rachat</span></dt>
+                <dd>
+                    <div *ngIf="soumission.rachatId">
+                        <a [routerLink]="['/rachat', soumission.rachatId, 'view']">{{ soumission.rachatId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.soumission.onc">Onc</span></dt>
+                <dd>
+                    <div *ngIf="soumission.oncId">
+                        <a [routerLink]="['/onc', soumission.oncId, 'view']">{{ soumission.oncId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/soumission', soumission.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

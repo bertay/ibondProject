@@ -1,0 +1,44 @@
+{
+  "name": "Parametres",
+  "fields": [
+    {
+      "fieldName": "adresseServeur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "timbreService1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "timbreService2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "timbreService3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "operateur",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateOperation",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20210821161651",
+  "javadoc": "Entite Parametre",
+  "entityTableName": "parametres",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

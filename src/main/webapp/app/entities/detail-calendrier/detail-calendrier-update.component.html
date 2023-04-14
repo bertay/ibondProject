@@ -1,0 +1,215 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-detail-calendrier-heading" jhiTranslate="ibondgeneApp.detailCalendrier.home.createOrEditLabel">Create or edit a Detail Calendrier</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.detailCalendrier.periode" for="field_periode">Periode</label>
+                    <input type="text" class="form-control" name="periode" id="field_periode"
+                           formControlName="periode"/>
+                    <div *ngIf="editForm.get('periode')!.invalid && (editForm.get('periode')!.dirty || editForm.get('periode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('periode')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.detailCalendrier.annee" for="field_annee">Annee</label>
+                    <input type="number" class="form-control" name="annee" id="field_annee"
+                           formControlName="annee"/>
+                    <div *ngIf="editForm.get('annee')!.invalid && (editForm.get('annee')!.dirty || editForm.get('annee')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('annee')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('annee')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.detailCalendrier.dateAnnonce" for="field_dateAnnonce">Date Annonce</label>
+                    <div class="input-group">
+                        <input id="field_dateAnnonce" type="text" class="form-control" name="dateAnnonce" ngbDatepicker #dateAnnonceDp="ngbDatepicker" formControlName="dateAnnonce"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateAnnonceDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateAnnonce')!.invalid && (editForm.get('dateAnnonce')!.dirty || editForm.get('dateAnnonce')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateAnnonce')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.detailCalendrier.dateAdjudication" for="field_dateAdjudication">Date Adjudication</label>
+                    <div class="input-group">
+                        <input id="field_dateAdjudication" type="text" class="form-control" name="dateAdjudication" ngbDatepicker #dateAdjudicationDp="ngbDatepicker" formControlName="dateAdjudication"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateAdjudicationDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.detailCalendrier.dateEcheance" for="field_dateEcheance">Date Echeance</label>
+                    <div class="input-group">
+                        <input id="field_dateEcheance" type="text" class="form-control" name="dateEcheance" ngbDatepicker #dateEcheanceDp="ngbDatepicker" formControlName="dateEcheance"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateEcheanceDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateEcheance')!.invalid && (editForm.get('dateEcheance')!.dirty || editForm.get('dateEcheance')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateEcheance')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.detailCalendrier.duree" for="field_duree">Duree</label>
+                    <input type="text" class="form-control" name="duree" id="field_duree"
+                           formControlName="duree"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.detailCalendrier.volumeEmission" for="field_volumeEmission">Volume Emission</label>
+                    <input type="number" class="form-control" name="volumeEmission" id="field_volumeEmission"
+                           formControlName="volumeEmission"/>
+                    <div *ngIf="editForm.get('volumeEmission')!.invalid && (editForm.get('volumeEmission')!.dirty || editForm.get('volumeEmission')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('volumeEmission')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('volumeEmission')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('volumeEmission')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.detailCalendrier.uniteVolume" for="field_uniteVolume">Unite Volume</label>
+                    <select class="form-control" name="uniteVolume" formControlName="uniteVolume" id="field_uniteVolume">
+                        <option value="Milles">{{ 'ibondgeneApp.UniteNombre.Milles' | translate }}</option>
+                        <option value="Millions">{{ 'ibondgeneApp.UniteNombre.Millions' | translate }}</option>
+                        <option value="Milliards">{{ 'ibondgeneApp.UniteNombre.Milliards' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('uniteVolume')!.invalid && (editForm.get('uniteVolume')!.dirty || editForm.get('uniteVolume')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('uniteVolume')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.detailCalendrier.devise" for="field_devise">Devise</label>
+                    <select class="form-control" name="devise" formControlName="devise" id="field_devise">
+                        <option value="FCFA">{{ 'ibondgeneApp.TypeValeur.FCFA' | translate }}</option>
+                        <option value="Euro">{{ 'ibondgeneApp.TypeValeur.Euro' | translate }}</option>
+                        <option value="USD">{{ 'ibondgeneApp.TypeValeur.USD' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('devise')!.invalid && (editForm.get('devise')!.dirty || editForm.get('devise')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('devise')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.detailCalendrier.dateValeur" for="field_dateValeur">Date Valeur</label>
+                    <div class="input-group">
+                        <input id="field_dateValeur" type="text" class="form-control" name="dateValeur" ngbDatepicker #dateValeurDp="ngbDatepicker" formControlName="dateValeur"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateValeurDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.detailCalendrier.nature" for="field_nature">Nature</label>
+                    <select class="form-control" name="nature" formControlName="nature" id="field_nature">
+                        <option value="Normale">{{ 'ibondgeneApp.TypeOperation.Normale' | translate }}</option>
+                        <option value="Reouverture">{{ 'ibondgeneApp.TypeOperation.Reouverture' | translate }}</option>
+                        <option value="Rachat">{{ 'ibondgeneApp.TypeOperation.Rachat' | translate }}</option>
+                        <option value="Syndication">{{ 'ibondgeneApp.TypeOperation.Syndication' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('nature')!.invalid && (editForm.get('nature')!.dirty || editForm.get('nature')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nature')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.detailCalendrier.operateur" for="field_operateur">Operateur</label>
+                    <input type="text" class="form-control" name="operateur" id="field_operateur"
+                           formControlName="operateur"/>
+                    <div *ngIf="editForm.get('operateur')!.invalid && (editForm.get('operateur')!.dirty || editForm.get('operateur')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('operateur')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.detailCalendrier.dateOperation" for="field_dateOperation">Date Operation</label>
+                    <div class="d-flex">
+                        <input id="field_dateOperation" type="datetime-local" class="form-control" name="dateOperation" formControlName="dateOperation" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dateOperation')!.invalid && (editForm.get('dateOperation')!.dirty || editForm.get('dateOperation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateOperation')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dateOperation')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ibondgeneApp.detailCalendrier.calendrier" for="field_calendrier">Calendrier</label>
+                    <select class="form-control" id="field_calendrier" name="calendrier" formControlName="calendrierId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="calendrierOption.id" *ngFor="let calendrierOption of calendriers; trackBy: trackById">{{ calendrierOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{
+  "ibondgeneApp": {
+    "membreSyndicat": {
+      "home": {
+        "title": "MembreSyndicats",
+        "createLabel": "Créer un nouveau Membre Syndicat",
+        "createOrEditLabel": "Créer ou éditer un Membre Syndicat",
+        "notFound": "Aucun Membre Syndicat trouvé"
+      },
+      "created": "Un nouveau Membre Syndicat a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Membre Syndicat avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Membre Syndicat avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Membre Syndicat {{ id }} ?"
+      },
+      "detail": {
+        "title": "Membre Syndicat"
+      },
+      "rang": "Rang",
+      "commission": "Commission",
+      "operateur": "Operateur",
+      "dateOperation": "Date Operation",
+      "emission": "Emission"
+    }
+  }
+}

@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reouverture">
+            <h2><span jhiTranslate="ibondgeneApp.reouverture.detail.title">Reouverture</span> {{ reouverture.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ibondgeneApp.reouverture.codeValeur">Code Valeur</span></dt>
+                <dd>
+                    <span>{{ reouverture.codeValeur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.reouverture.designationFr">Designation Fr</span></dt>
+                <dd>
+                    <span>{{ reouverture.designationFr }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.reouverture.designationEn">Designation En</span></dt>
+                <dd>
+                    <span>{{ reouverture.designationEn }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.reouverture.designationPt">Designation Pt</span></dt>
+                <dd>
+                    <span>{{ reouverture.designationPt }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.reouverture.dateEmission">Date Emission</span></dt>
+                <dd>
+                    <span>{{ reouverture.dateEmission }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.reouverture.tauxInteret">Taux Interet</span></dt>
+                <dd>
+                    <span>{{ reouverture.tauxInteret }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.reouverture.encoursEmission">Encours Emission</span></dt>
+                <dd>
+                    <span>{{ reouverture.encoursEmission }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.reouverture.uniteVolume">Unite Volume</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.UniteNombre.' + reouverture.uniteVolume }}">{{ reouverture.uniteVolume }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.reouverture.montantSollicite">Montant Sollicite</span></dt>
+                <dd>
+                    <span>{{ reouverture.montantSollicite }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.reouverture.uniteMontant">Unite Montant</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.UniteNombre.' + reouverture.uniteMontant }}">{{ reouverture.uniteMontant }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.reouverture.devise">Devise</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ibondgeneApp.TypeValeur.' + reouverture.devise }}">{{ reouverture.devise }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.reouverture.dateEcheance">Date Echeance</span></dt>
+                <dd>
+                    <span>{{ reouverture.dateEcheance }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.reouverture.dateValeur">Date Valeur</span></dt>
+                <dd>
+                    <span>{{ reouverture.dateValeur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.reouverture.operateur">Operateur</span></dt>
+                <dd>
+                    <span>{{ reouverture.operateur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.reouverture.dateOperation">Date Operation</span></dt>
+                <dd>
+                    <span>{{ reouverture.dateOperation }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.reouverture.emission">Emission</span></dt>
+                <dd>
+                    <div *ngIf="reouverture.emissionId">
+                        <a [routerLink]="['/emission', reouverture.emissionId, 'view']">{{ reouverture.emissionId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reouverture', reouverture.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

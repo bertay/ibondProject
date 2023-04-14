@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+        <property name="autoIncrement" value="true"/>
+
+    <!--
+        Added the entity Emission.
+    -->
+    <changeSet id="20210821160851-1" author="jhipster">
+        <createTable tableName="emission" remarks="Entite Emission">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="code_emission" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="designation_fr" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="designation_en" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="designation_pt" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_emission" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="echeance" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="duree" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="remboursement" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="forme_titre" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="taux_interet" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+            <column name="volume_emission" type="double">
+                <constraints nullable="false" />
+            </column>
+            <column name="unite_volume" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="valeur_nominale" type="double">
+                <constraints nullable="false" />
+            </column>
+            <column name="devise" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="quantite_titre" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="rendement" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_limite" type="datetime">
+                <constraints nullable="false" />
+            </column>
+            <column name="lieu_souscription" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_resultat" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_reglement" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_valeur" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="operateur" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_operation" type="datetime">
+                <constraints nullable="false" />
+            </column>
+            <column name="avis_emission_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="nature_titre_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="emission" columnName="date_limite" columnDataType="datetime"/>
+        <dropDefaultValue tableName="emission" columnName="date_resultat" columnDataType="datetime"/>
+        <dropDefaultValue tableName="emission" columnName="date_reglement" columnDataType="datetime"/>
+        <dropDefaultValue tableName="emission" columnName="date_operation" columnDataType="datetime"/>
+    </changeSet>
+
+    <changeSet id="20210821160851-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20210821160851-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/emission.csv"
+                  separator=";"
+                  tableName="emission">
+            <column name="id" type="numeric"/>
+            <column name="code_emission" type="string"/>
+            <column name="designation_fr" type="string"/>
+            <column name="designation_en" type="string"/>
+            <column name="designation_pt" type="string"/>
+            <column name="date_emission" type="date"/>
+            <column name="echeance" type="date"/>
+            <column name="duree" type="string"/>
+            <column name="remboursement" type="string"/>
+            <column name="forme_titre" type="string"/>
+            <column name="taux_interet" type="numeric"/>
+            <column name="volume_emission" type="numeric"/>
+            <column name="unite_volume" type="string"/>
+            <column name="valeur_nominale" type="numeric"/>
+            <column name="devise" type="string"/>
+            <column name="quantite_titre" type="numeric"/>
+            <column name="rendement" type="string"/>
+            <column name="date_limite" type="datetime"/>
+            <column name="lieu_souscription" type="string"/>
+            <column name="date_resultat" type="datetime"/>
+            <column name="date_reglement" type="datetime"/>
+            <column name="date_valeur" type="date"/>
+            <column name="operateur" type="string"/>
+            <column name="date_operation" type="datetime"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

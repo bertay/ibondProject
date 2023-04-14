@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pays">
+            <h2><span jhiTranslate="ibondgeneApp.pays.detail.title">Pays</span> {{ pays.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ibondgeneApp.pays.codePays">Code Pays</span></dt>
+                <dd>
+                    <span>{{ pays.codePays }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.pays.designationFr">Designation Fr</span></dt>
+                <dd>
+                    <span>{{ pays.designationFr }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.pays.designationEn">Designation En</span></dt>
+                <dd>
+                    <span>{{ pays.designationEn }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.pays.designationPt">Designation Pt</span></dt>
+                <dd>
+                    <span>{{ pays.designationPt }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.pays.operateur">Operateur</span></dt>
+                <dd>
+                    <span>{{ pays.operateur }}</span>
+                </dd>
+                <dt><span jhiTranslate="ibondgeneApp.pays.dateOperation">Date Operation</span></dt>
+                <dd>
+                    <span>{{ pays.dateOperation }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pays', pays.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

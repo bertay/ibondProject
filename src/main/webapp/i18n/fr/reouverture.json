@@ -1,0 +1,41 @@
+{
+  "ibondgeneApp": {
+    "reouverture": {
+      "home": {
+        "title": "Reouvertures",
+        "createLabel": "Créer un nouveau Reouverture",
+        "createOrEditLabel": "Créer ou éditer un Reouverture",
+        "notFound": "Aucun Reouverture trouvé"
+      },
+      "created": "Un nouveau Reouverture a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Reouverture avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Reouverture avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Reouverture {{ id }} ?"
+      },
+      "detail": {
+        "title": "Reouverture"
+      },
+      "codeValeur": "Code Valeur",
+      "designationFr": "Designation Fr",
+      "designationEn": "Designation En",
+      "designationPt": "Designation Pt",
+      "dateEmission": "Date Emission",
+      "tauxInteret": "Taux Interet",
+      "encoursEmission": "Encours Emission",
+      "uniteVolume": "Unite Volume",
+      "montantSollicite": "Montant Sollicite",
+      "uniteMontant": "Unite Montant",
+      "devise": "Devise",
+      "dateEcheance": "Date Echeance",
+      "dateValeur": "Date Valeur",
+      "operateur": "Operateur",
+      "dateOperation": "Date Operation",
+      "soumission": "Soumission",
+      "adjudication": "Adjudication",
+      "classement": "Classement",
+      "resultat": "Resultat",
+      "emission": "Emission"
+    }
+  }
+}

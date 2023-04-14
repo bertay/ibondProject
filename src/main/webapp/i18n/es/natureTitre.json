@@ -1,0 +1,31 @@
+{
+  "ibondgeneApp": {
+    "natureTitre": {
+      "home": {
+        "title": "Nature Titres",
+        "createLabel": "Crear nuevo Nature Titre",
+        "createOrEditLabel": "Crear o editar Nature Titre",
+        "notFound": "Ningún Nature Titres encontrado"
+      },
+      "created": "Un nuevo Nature Titre ha sido creado con el identificador {{ param }}",
+      "updated": "Un Nature Titre ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Nature Titre ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Nature Titre {{ id }}?"
+      },
+      "detail": {
+        "title": "Nature Titre"
+      },
+      "codeNature": "Code Nature",
+      "designationFr": "Designation Fr",
+      "designationEn": "Designation En",
+      "designationPt": "Designation Pt",
+      "nominalUnitaire": "Nominal Unitaire",
+      "uniteValeur": "Unite Valeur",
+      "natureEcheance": "Nature Echeance",
+      "operateur": "Operateur",
+      "dateOperation": "Date Operation",
+      "emission": "Emission"
+    }
+  }
+}

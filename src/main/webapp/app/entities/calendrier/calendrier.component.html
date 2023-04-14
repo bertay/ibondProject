@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ibondgeneApp.calendrier.home.title">Calendriers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-calendrier" [routerLink]="['/calendrier/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ibondgeneApp.calendrier.home.createLabel">
+            Create a new Calendrier
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="calendriers?.length === 0">
+        <span jhiTranslate="ibondgeneApp.calendrier.home.notFound">No calendriers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="calendriers && calendriers.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.calendrier.nature">Nature</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.calendrier.numero">Numero</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.calendrier.reference">Reference</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.calendrier.signataire">Signataire</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.calendrier.titreCalendrierFr">Titre Calendrier Fr</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.calendrier.titreCalendrierEn">Titre Calendrier En</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.calendrier.titreCalendrierPt">Titre Calendrier Pt</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.calendrier.etatCalendrier">Etat Calendrier</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.calendrier.operateur">Operateur</span></th>
+                    <th scope="col" ><span jhiTranslate="ibondgeneApp.calendrier.dateOperation">Date Operation</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let calendrier of calendriers ;trackBy: trackId">
+                    <td><a [routerLink]="['/calendrier', calendrier.id, 'view']">{{ calendrier.id }}</a></td>
+                    <td jhiTranslate="{{ 'ibondgeneApp.NatureActe.' + calendrier.nature }}">{{ calendrier.nature }}</td>
+                    <td>{{ calendrier.numero }}</td>
+                    <td>{{ calendrier.reference }}</td>
+                    <td>{{ calendrier.signataire }}</td>
+                    <td>{{ calendrier.titreCalendrierFr }}</td>
+                    <td>{{ calendrier.titreCalendrierEn }}</td>
+                    <td>{{ calendrier.titreCalendrierPt }}</td>
+                    <td jhiTranslate="{{ 'ibondgeneApp.EtatActe.' + calendrier.etatCalendrier }}">{{ calendrier.etatCalendrier }}</td>
+                    <td>{{ calendrier.operateur }}</td>
+                    <td>{{ calendrier.dateOperation | date:'medium' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/calendrier', calendrier.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/calendrier', calendrier.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(calendrier)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Resultat.
+    -->
+    <changeSet id="20210821161551-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="emission_id"
+                                 baseTableName="resultat"
+                                 constraintName="fk_resultat_emission_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="emission"/>
+
+        <addForeignKeyConstraint baseColumnNames="resultat_id"
+                                 baseTableName="resultat"
+                                 constraintName="fk_resultat_resultat_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reouverture"/>
+
+        <addForeignKeyConstraint baseColumnNames="rachat_id"
+                                 baseTableName="resultat"
+                                 constraintName="fk_resultat_rachat_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rachat"/>
+
+        <addForeignKeyConstraint baseColumnNames="onc_id"
+                                 baseTableName="resultat"
+                                 constraintName="fk_resultat_onc_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="onc"/>
+
+    </changeSet>
+</databaseChangeLog>

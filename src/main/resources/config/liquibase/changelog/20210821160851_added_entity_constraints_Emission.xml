@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Emission.
+    -->
+    <changeSet id="20210821160851-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="avis_emission_id"
+                                 baseTableName="emission"
+                                 constraintName="fk_emission_avis_emission_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="avis_emission"/>
+
+        <addForeignKeyConstraint baseColumnNames="nature_titre_id"
+                                 baseTableName="emission"
+                                 constraintName="fk_emission_nature_titre_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nature_titre"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,53 @@
+{
+  "ibondgeneApp": {
+    "emission": {
+      "home": {
+        "title": "Emissions",
+        "createLabel": "Create a new Emission",
+        "createOrEditLabel": "Create or edit a Emission",
+        "notFound": "No Emissions found"
+      },
+      "created": "A new Emission is created with identifier {{ param }}",
+      "updated": "A Emission is updated with identifier {{ param }}",
+      "deleted": "A Emission is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Emission {{ id }}?"
+      },
+      "detail": {
+        "title": "Emission"
+      },
+      "codeEmission": "Code Emission",
+      "designationFr": "Designation Fr",
+      "designationEn": "Designation En",
+      "designationPt": "Designation Pt",
+      "dateEmission": "Date Emission",
+      "echeance": "Echeance",
+      "duree": "Duree",
+      "remboursement": "Remboursement",
+      "formeTitre": "Forme Titre",
+      "tauxInteret": "Taux Interet",
+      "volumeEmission": "Volume Emission",
+      "uniteVolume": "Unite Volume",
+      "valeurNominale": "Valeur Nominale",
+      "devise": "Devise",
+      "quantiteTitre": "Quantite Titre",
+      "rendement": "Rendement",
+      "dateLimite": "Date Limite",
+      "lieuSouscription": "Lieu Souscription",
+      "dateResultat": "Date Resultat",
+      "dateReglement": "Date Reglement",
+      "dateValeur": "Date Valeur",
+      "operateur": "Operateur",
+      "dateOperation": "Date Operation",
+      "soumission": "Soumission",
+      "reouverture": "Reouverture",
+      "rachat": "Rachat",
+      "onc": "Onc",
+      "classement": "Classement",
+      "resultat": "Resultat",
+      "membreSyndicat": "Membre Syndicat",
+      "avisEmission": "Avis Emission",
+      "natureTitre": "Nature Titre"
+    }
+  }
+}

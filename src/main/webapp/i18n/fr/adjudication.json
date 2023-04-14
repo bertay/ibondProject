@@ -1,0 +1,28 @@
+{
+  "ibondgeneApp": {
+    "adjudication": {
+      "home": {
+        "title": "Adjudications",
+        "createLabel": "Créer un nouveau Adjudication",
+        "createOrEditLabel": "Créer ou éditer un Adjudication",
+        "notFound": "Aucun Adjudication trouvé"
+      },
+      "created": "Un nouveau Adjudication a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Adjudication avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Adjudication avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Adjudication {{ id }} ?"
+      },
+      "detail": {
+        "title": "Adjudication"
+      },
+      "rang": "Rang",
+      "observationFr": "Observation Fr",
+      "observationEn": "Observation En",
+      "observationPt": "Observation Pt",
+      "reouverture": "Reouverture",
+      "rachat": "Rachat",
+      "onc": "Onc"
+    }
+  }
+}

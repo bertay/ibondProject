@@ -1,0 +1,60 @@
+{
+  "name": "Onc",
+  "fields": [
+    {
+      "fieldName": "operateur",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateOperation",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "soumission",
+      "otherEntityRelationshipName": "onc",
+      "relationshipName": "soumission"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "adjudication",
+      "otherEntityRelationshipName": "onc",
+      "relationshipName": "adjudication"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "classement",
+      "otherEntityRelationshipName": "onc",
+      "relationshipName": "classement"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "resultat",
+      "otherEntityRelationshipName": "onc",
+      "relationshipName": "resultat"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "emission",
+      "otherEntityRelationshipName": "onc",
+      "relationshipName": "emission",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210821162251",
+  "javadoc": "Entite Onc",
+  "entityTableName": "onc",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

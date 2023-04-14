@@ -1,0 +1,51 @@
+{
+  "name": "Pays",
+  "fields": [
+    {
+      "fieldName": "codePays",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "designationFr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "designationEn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "designationPt",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "operateur",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateOperation",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "svt",
+      "otherEntityRelationshipName": "pays",
+      "relationshipName": "svt"
+    }
+  ],
+  "changelogDate": "20210821160951",
+  "javadoc": "Entite Pays",
+  "entityTableName": "pays",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

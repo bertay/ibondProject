@@ -1,0 +1,58 @@
+{
+  "name": "Adjudication",
+  "fields": [
+    {
+      "fieldName": "rang",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min", "required"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "observationFr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "observationEn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "observationPt",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "reouverture",
+      "otherEntityRelationshipName": "adjudication",
+      "relationshipName": "reouverture",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "rachat",
+      "otherEntityRelationshipName": "adjudication",
+      "relationshipName": "rachat",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "onc",
+      "otherEntityRelationshipName": "adjudication",
+      "relationshipName": "onc",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210821161451",
+  "javadoc": "Entite Adjudication",
+  "entityTableName": "adjudication",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,26 @@
+{
+  "ibondgeneApp": {
+    "membreSyndicat": {
+      "home": {
+        "title": "Membre Syndicats",
+        "createLabel": "Create a new Membre Syndicat",
+        "createOrEditLabel": "Create or edit a Membre Syndicat",
+        "notFound": "No Membre Syndicats found"
+      },
+      "created": "A new Membre Syndicat is created with identifier {{ param }}",
+      "updated": "A Membre Syndicat is updated with identifier {{ param }}",
+      "deleted": "A Membre Syndicat is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Membre Syndicat {{ id }}?"
+      },
+      "detail": {
+        "title": "Membre Syndicat"
+      },
+      "rang": "Rang",
+      "commission": "Commission",
+      "operateur": "Operateur",
+      "dateOperation": "Date Operation",
+      "emission": "Emission"
+    }
+  }
+}

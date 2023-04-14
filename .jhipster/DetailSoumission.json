@@ -1,0 +1,55 @@
+{
+  "name": "DetailSoumission",
+  "fields": [
+    {
+      "fieldName": "montantSoumission",
+      "fieldType": "Double",
+      "fieldValidateRules": ["min", "required"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "tauxPropose",
+      "fieldType": "Float",
+      "fieldValidateRules": ["min", "max", "required"],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "100"
+    },
+    {
+      "fieldName": "operateur",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateOperation",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "classement",
+      "otherEntityRelationshipName": "detailSoumission",
+      "relationshipName": "classement"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "soumission",
+      "otherEntityRelationshipName": "detailSoumission",
+      "relationshipName": "soumission",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210821161251",
+  "javadoc": "Entite DetailSoumission",
+  "entityTableName": "detail_soumission",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
