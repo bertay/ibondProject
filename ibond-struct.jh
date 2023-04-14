@@ -1,0 +1,329 @@
+/**
+* Entite NatureTitre
+*/
+entity NatureTitre {
+  codeNature String required, 
+  designationFr String,
+  designationEn String,
+  designationPt String,
+  nominalUnitaire Long min(0) required,
+  uniteValeur TypeValeur required,
+  natureEcheance UniteDuree required,
+  operateur String required,
+  dateOperation ZonedDateTime required 
+}
+
+/**
+* Entite AvisEmission
+*/
+entity AvisEmission {
+   nature NatureActe,
+   numero String,
+   reference String,
+   signataire String,
+   objetAvisFr String ,
+   objetAvisEn String ,
+   objetAvisPt String ,
+   etatAvis EtatActe,
+   operateur String required,
+   dateOperation ZonedDateTime required
+   
+}
+/**
+* Entite Emission
+*/
+entity Emission {
+  codeEmission String required,
+  designationFr String,
+  designationEn String,
+  designationPt String,  
+  dateEmission LocalDate required,
+  echeance LocalDate required,
+  duree String,
+  remboursement String,
+  formeTitre String,
+  tauxInteret Float min(0) max(100) required,
+  volumeEmission Double min(0) required,
+  uniteVolume UniteNombre required, 
+  valeurNominale Double min(0) required,
+  devise TypeValeur required,
+  quantiteTitre Integer min(0),
+  rendement String ,
+  dateLimite ZonedDateTime required,
+  lieuSouscription String required,
+  dateResultat ZonedDateTime,
+  dateReglement ZonedDateTime,
+  dateValeur LocalDate,
+  operateur String required,
+  dateOperation ZonedDateTime required 
+}
+/**
+* Entite Pays
+*/
+entity Pays {
+   codePays String,
+   designationFr String,
+   designationEn String,
+   designationPt String,
+   operateur String required,
+   dateOperation ZonedDateTime required
+}
+/**
+* Entite Svt
+*/
+entity Svt {
+  abreviationFr String,
+  abreviationEn String,
+  abreviationPt String,
+  designationFr String  required,
+  designationEn String ,
+  etat EtatSvt,
+  operateur String required,
+  dateOperation ZonedDateTime required
+}
+/**
+* Entite Soumission
+*/
+entity Soumission {
+   numAnonymat String required,
+   dateSoumission ZonedDateTime required,
+   nbreSoumission Integer min(0),
+   operateur String required,
+   dateOperation ZonedDateTime required
+}
+/**
+* Entite DetailSoumission
+*/
+entity DetailSoumission {
+   montantSoumission Double min(0) required,
+   tauxPropose Float min(0) max(100) required,
+   operateur String required,
+   dateOperation ZonedDateTime required
+}
+/**
+* Entite Classement
+*/
+entity Classement {
+  rang Integer min(0) required,
+  observationFr String ,
+  observationEn String , 
+  observationPt String   
+}
+/**
+* Entite Adjudication
+*/
+entity Adjudication {
+  rang Integer min(0) required,
+  observationFr String ,
+  observationEn String , 
+  observationPt String 
+}
+/**
+* Entite Resultat
+*/
+entity Resultat {
+  nbreSvtTotal Integer min(0),
+  nbreSvtSoumis Integer min(0),
+  montantTresor Double min(0) required,
+  uniteTresor UniteNombre,
+  montantSoumis Double min(0) required,
+  uniteSoumis UniteNombre,
+  montantServi Double min(0) required,
+  nbreTitreTotal Long min(0),
+  nbreTitreSoumis Long min(0),
+  tauxMinPropose Float min(0) max(100),
+  tauxMaxPropose Float min(0) max(100),
+  tauxLimite Float min(0) max(100),
+  tauxInteretMoyen Float min(0) max(100),
+  tauxRendementMoyen Float min(0) max(100),
+  tauxCouverture Float min(0) max(100)
+}
+/**
+* Entite Parametre
+*/
+entity Parametres {
+  adresseServeur String ,
+  timbreService1 String ,
+  timbreService2 String ,
+  timbreService3 String ,
+  operateur String required,
+  dateOperation ZonedDateTime required
+}
+/**
+* Entite Calendrier
+*/
+entity Calendrier {
+   nature NatureActe,
+   numero String,
+   reference String,
+   signataire String,
+   titreCalendrierFr String ,
+   titreCalendrierEn String ,
+   titreCalendrierPt String ,
+   etatCalendrier EtatActe,
+   operateur String required,
+   dateOperation ZonedDateTime required
+   
+}
+/**
+* Entite Detail Calendrier
+*/
+entity DetailCalendrier {
+  periode String required,
+  annee Integer required,
+  dateAnnonce LocalDate required,
+  dateAdjudication LocalDate,
+  dateEcheance LocalDate required,
+  duree String,
+  volumeEmission Double min(0) required,
+  uniteVolume UniteNombre required, 
+  devise TypeValeur required,
+  dateValeur LocalDate,
+  nature TypeOperation required,
+  operateur String required,
+  dateOperation ZonedDateTime required 
+}
+/**
+* Entite Syndicat membre
+*/
+entity MembreSyndicat {
+   rang TypeRang,
+   commission Float 
+   operateur String required,
+   dateOperation ZonedDateTime required 
+}
+/**
+* Entite Reouverture
+*/
+entity Reouverture {
+  codeValeur String required,
+  designationFr String,
+  designationEn String,
+  designationPt String,  
+  dateEmission LocalDate required,
+  tauxInteret Float min(0) max(100) required,
+  encoursEmission Double min(0) required,
+  uniteVolume UniteNombre required,
+  montantSollicite Double min(0) required,
+  uniteMontant UniteNombre required,
+  devise TypeValeur required,
+  dateEcheance LocalDate required,
+  dateValeur LocalDate,
+  operateur String required,
+  dateOperation ZonedDateTime required 
+}
+/**
+* Entite Rachat
+*/
+entity Rachat {
+  codeValeur String required,
+  designationFr String,
+  designationEn String,
+  designationPt String,  
+  dateEmission LocalDate required,
+  tauxInteret Float min(0) max(100) required,
+  montantNominal Double min(0) required,
+  uniteMontant UniteNombre required,
+  devise TypeValeur required,
+  dateEcheance LocalDate required,
+  dateValeur LocalDate,
+  operateur String required,
+  dateOperation ZonedDateTime required 
+}
+/**
+* Entite Onc
+*/
+entity Onc {
+   operateur String required,
+   dateOperation ZonedDateTime required
+}
+
+
+
+/*-------------------Enumerations----------------------------------------- */
+enum TypeValeur {
+    FCFA, Euro, USD
+}
+enum UniteDuree {
+   Jours, Semaines, Annees
+}
+enum NatureActe {
+   Avis, Calendrier ,Communique, Resultat
+}
+enum UniteNombre{
+  Milles, Millions, Milliards
+}
+enum EtatActe {
+   Projet, Signe
+}
+enum EtatSvt{
+   Agree, Suspendu
+}
+enum TypeOperation{
+   Normale, Reouverture, Rachat, Syndication
+}
+enum TypeRang{
+   Chef_file, Membre
+}
+
+
+
+/*-------------------Relations----------------------------------------- */
+relationship OneToMany {
+	AvisEmission to Emission{avisEmission},
+	NatureTitre to Emission{natureTitre}	
+}
+relationship OneToMany {
+	Pays to Svt{pays}
+}
+relationship OneToMany {
+	Emission to Soumission{emission},
+	Emission to Reouverture{emission},
+	Emission to Rachat{emission},
+	Emission to Onc{emission}
+}
+relationship OneToMany {
+	Soumission to DetailSoumission{soumission}
+}
+relationship OneToMany {
+	DetailSoumission to Classement{detailSoumission},
+	Emission to Classement{emission}
+}
+relationship OneToMany {
+	Emission to Resultat{emission}
+}
+relationship OneToMany {
+	Calendrier to DetailCalendrier{calendrier}
+}
+relationship OneToMany {
+	Emission to MembreSyndicat{emission}
+}
+relationship OneToMany {
+    Reouverture to Soumission{reouverture},
+	Reouverture to Adjudication{reouverture},
+	Reouverture to Classement{reouverture},
+	Reouverture to Resultat{resultat}
+}
+relationship OneToMany {
+	Rachat to Soumission{rachat},
+	Rachat to Adjudication{rachat},
+	Rachat to Classement{rachat},
+	Rachat to Resultat{rachat}
+}
+relationship OneToMany {
+	Onc to Soumission{onc},
+	Onc to Adjudication{onc},
+	Onc to Classement{onc},
+	Onc to Resultat{onc}
+}
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+// Use Data Transfer Objects (DTO)
+ dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

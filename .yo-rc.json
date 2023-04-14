@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.tresor.myapp",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "monolith",
+    "baseName": "ibondgene",
+    "packageName": "com.tresor.myapp",
+    "packageFolder": "com/tresor/myapp",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "OThhNjJhMTkwMGE1YTJjZWQ1NjY4MTU0ZTAzNDIwODg2MTY4MmUxOGMyNjE1YmM4MTY4Yjc0MjJlYTBhYzVmYmY3MDMzZjBhMjdjZWU1ODFjMDcwMzRjMDRkNzM3ZjA1N2RkZDE1OGM5NGJlOWFjODY5ZDA5MGNlN2Q5NzNkNDE=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1629561057122,
+    "testFrameworks": ["gatling", "cucumber", "protractor"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": ["fr", "en", "pt-pt", "es"],
+    "blueprints": []
+  }
+}
